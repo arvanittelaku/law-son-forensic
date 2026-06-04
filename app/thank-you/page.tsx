@@ -1,0 +1,68 @@
+import Link from "next/link";
+import { buildMetadata } from "@/lib/metadata";
+import { SITE_EMAIL } from "@/lib/site";
+import { Button } from "@/components/ui/Button";
+
+export const metadata = buildMetadata({
+  title: "Thank You | Lawson Forensic",
+  description: "Your enquiry has been received. Lawson Forensic will respond within one business day.",
+  path: "/thank-you",
+  noindex: true,
+  nofollow: true,
+});
+
+export default function ThankYouPage() {
+  return (
+    <>
+      <section className="bg-navy py-12 sm:py-16 md:py-24">
+        <div className="container-page text-center">
+          <p className="font-serif text-sm font-semibold uppercase tracking-wide text-gold">
+            Enquiry received
+          </p>
+          <h1 className="mt-4 font-serif text-2xl font-semibold text-white xs:text-3xl md:text-4xl">
+            Thank you
+          </h1>
+          <p className="mx-auto mt-4 max-w-xl text-base leading-relaxed text-white/80 sm:text-lg">
+            We have received your message and aim to respond within one business day.
+          </p>
+        </div>
+      </section>
+
+      <section className="py-10 sm:py-14 md:py-20">
+        <div className="container-page mx-auto max-w-2xl text-center">
+          <p className="text-base leading-relaxed text-body sm:text-lg">
+            If your matter is urgent, please email us directly at{" "}
+            <a
+              href={`mailto:${SITE_EMAIL}`}
+              className="break-all font-semibold text-gold hover:underline"
+            >
+              {SITE_EMAIL}
+            </a>
+            .
+          </p>
+          <div className="hero-cta-group mt-10 justify-center">
+            <Button href="/" className="w-full sm:w-auto">
+              Return to Homepage
+            </Button>
+            <Button
+              href="/services"
+              variant="outline"
+              className="w-full border-gold text-navy sm:w-auto"
+            >
+              View Services
+            </Button>
+          </div>
+          <p className="mt-10 text-sm text-charcoal">
+            <Link href="/how-we-work" className="text-gold hover:underline">
+              How we work
+            </Link>
+            {" · "}
+            <Link href="/faq" className="text-gold hover:underline">
+              FAQ
+            </Link>
+          </p>
+        </div>
+      </section>
+    </>
+  );
+}
