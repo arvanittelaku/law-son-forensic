@@ -8,7 +8,7 @@ import { CTASection } from "@/components/CTASection";
 import { insights } from "@/lib/data/insights";
 
 export const metadata = buildMetadata({
-  title: "Insights | Lawson Forensic UK Forensic Accounting",
+  title: "Insights | Lawson Forensic U.S. Forensic Accounting",
   description:
     "Forensic accounting insights and expert commentary from Lawson Forensic on fraud, disputes, expert witness practice, and financial investigations.",
   path: "/insights",

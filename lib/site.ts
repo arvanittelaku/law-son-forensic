@@ -3,7 +3,13 @@ export const SITE_URL =
 
 export const SITE_NAME = "Lawson Forensic";
 
-export const SITE_EMAIL = "info@lawsonforensic.com";
+export const SITE_EMAIL = "contact@lawsonforensic.com";
+
+/** Geographic scope — surfaced in copy, schema, and FAQs */
+export const SITE_REGION = "United States";
+
+export const SITE_REGION_NOTE =
+  "Lawson Forensic serves clients in the United States only. We do not accept instructions for matters outside the U.S.";
 
 export const LINKEDIN_URL =
   process.env.NEXT_PUBLIC_LINKEDIN_URL ??

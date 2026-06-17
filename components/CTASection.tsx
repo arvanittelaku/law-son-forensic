@@ -9,7 +9,7 @@ type CTASectionProps = {
 
 export function CTASection({
   title = "Discuss your instruction",
-  description = "Contact Lawson Forensic to discuss expert witness or forensic accounting support. We respond within one business day.",
+  description = "Contact Lawson Forensic to discuss expert witness or forensic accounting support. We respond within one business day. United States clients only.",
   buttonText = "Contact Us",
   buttonHref = "/contact",
 }: CTASectionProps) {

@@ -7,9 +7,9 @@ import { CTASection } from "@/components/CTASection";
 import { caseStudies } from "@/lib/data/case-studies";
 
 export const metadata = buildMetadata({
-  title: "Case Studies | Lawson Forensic Forensic Accounting UK",
+  title: "Case Studies | Lawson Forensic Forensic Accounting USA",
   description:
-    "Anonymised case studies from Lawson Forensic's forensic accounting practice, demonstrating expertise across commercial disputes, fraud investigations, and family proceedings.",
+    "Anonymised case studies from Lawson Forensic's U.S. forensic accounting practice, demonstrating expertise across commercial disputes, shareholder claims, fraud investigations, and marital dissolution.",
   path: "/case-studies",
 });
 

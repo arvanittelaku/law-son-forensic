@@ -1,6 +1,6 @@
 # Lawson Forensic
 
-Production website for [lawsonforensic.com](https://www.lawsonforensic.com): UK boutique forensic accounting and expert witness services.
+Production website for [lawsonforensic.com](https://www.lawsonforensic.com): U.S. boutique forensic accounting and expert witness services.
 
 ## Stack
 

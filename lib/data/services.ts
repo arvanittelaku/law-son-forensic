@@ -24,37 +24,37 @@ export const services: Service[] = [
     id: "expert-witness",
     title: "Expert Witness Reports",
     description:
-      "CPR Part 35, FPR Part 25, and CrPR Part 33 compliant reports for civil, family, and criminal proceedings.",
-    metaTitle: "Expert Witness Reports | Lawson Forensic UK",
+      "Independent forensic accounting expert witness reports for federal and state litigation, arbitration, and dispute resolution.",
+    metaTitle: "Expert Witness Reports | Lawson Forensic USA",
     metaDescription:
-      "CPR Part 35 and FPR Part 25 compliant expert witness reports for civil, family, and criminal proceedings. SJE appointments available nationwide.",
+      "Forensic accounting expert witness reports for U.S. civil, commercial, and family litigation. Daubert-ready methodology and clear courtroom testimony.",
     blocks: [
       {
         type: "prose",
-        heading: "CPR Part 35 & FPR Part 25 Compliant Expert Reports",
+        heading: "Court-Ready Expert Witness Reports",
         paragraphs: [
-          "All Lawson Forensic expert reports comply with the relevant procedural framework: CPR Part 35 for civil proceedings, FPR Part 25 for family proceedings, CrPR Part 33 for criminal matters. Our reports include a statement of truth and reflect our primary duty to the court.",
+          "Lawson Forensic provides independent forensic accounting expert witness services for matters in U.S. federal and state courts. Our reports follow applicable procedural rules, including Federal Rule of Evidence 702 and state expert evidence standards, with transparent methodology and conclusions designed to withstand Daubert scrutiny and cross-examination.",
         ],
       },
       {
         type: "prose",
-        heading: "Single Joint Expert (SJE) Appointments",
+        heading: "Jointly Retained & Court-Appointed Experts",
         paragraphs: [
-          "We are available for SJE appointments in appropriate cases, jointly instructed by both parties under CPR 35.7 or FPR 25.11. We understand the particular importance of demonstrating independence in SJE roles and the different dynamic of joint instruction letters.",
+          "We accept party-retained and jointly retained expert appointments, as well as court-appointed expert roles where appropriate. In jointly retained matters, we maintain independence throughout and work from a clearly agreed scope of engagement.",
         ],
       },
       {
         type: "list",
         heading: "What Our Expert Reports Cover",
         items: [
-          "Loss of profits and consequential loss",
+          "Forensic accounting opinions and financial reconstruction",
           "Business and share valuation",
-          "Forensic accounting opinions (GAAP, IFRS, accounting standards compliance)",
-          "Fraud loss quantification",
-          "POCA benefit and available assets analysis",
-          "Family financial proceedings (Form E review, business valuation, income analysis, add-backs)",
-          "Loss of earnings (personal injury, ET)",
-          "Insolvency analysis (solvency, transactions, misfeasance)",
+          "Shareholder and partnership dispute analysis",
+          "Loss of profits and damages quantification",
+          "Fraud loss and asset tracing support",
+          "Marital dissolution business valuation and income analysis",
+          "Lost earnings and economic damages (personal injury)",
+          "Bankruptcy and solvency analysis",
         ],
       },
       {
@@ -63,19 +63,18 @@ export const services: Service[] = [
         columns: ["Stage", "Lawson Forensic Action", "Typical Timeline"],
         rows: [
           ["Initial enquiry", "Assess scope, check conflicts, confirm availability", "Same day"],
-          ["Letter of instruction", "Review, raise queries if needed", "Within 2 days"],
+          ["Engagement letter", "Review scope, raise queries if needed", "Within 2 days"],
           ["Document review", "Analyse financial records and supporting materials", "1 to 4 weeks"],
-          ["Draft report", "Prepare CPR/FPR compliant draft", "2 to 4 weeks"],
-          ["Finalise", "Incorporate comments (factual only), finalise", "1 to 2 weeks"],
-          ["Written questions", "Respond to CPR Part 35.6 questions", "Within directed timetable"],
-          ["Oral evidence", "Attend hearing, give evidence", "As directed"],
+          ["Draft report", "Prepare expert report for review", "2 to 4 weeks"],
+          ["Finalise", "Incorporate factual corrections, finalise", "1 to 2 weeks"],
+          ["Deposition & trial", "Testify and respond to discovery as directed", "As scheduled"],
         ],
       },
       {
         type: "prose",
-        heading: "Ikarian Reefer & Our Duty to the Court",
+        heading: "Independence & Objectivity",
         paragraphs: [
-          "Our duty is to the court, not to the party instructing us. This shapes every opinion we give and every report we write. We will advise instructing solicitors promptly if our preliminary view may be adverse to the instructing party.",
+          "Our opinions reflect our honest independent view of the financial issues. We advise instructing counsel promptly if our preliminary view may be adverse to the retaining party, because early clarity supports better case strategy.",
         ],
       },
     ],
@@ -84,42 +83,42 @@ export const services: Service[] = [
     id: "fraud-investigation",
     title: "Fraud Investigation",
     description:
-      "Independent forensic investigations into suspected fraud and financial misconduct.",
-    metaTitle: "Fraud Investigation | Lawson Forensic UK",
+      "Independent forensic investigations into suspected fraud, embezzlement, and financial misconduct for U.S. counsel and businesses.",
+    metaTitle: "Fraud Investigation | Lawson Forensic USA",
     metaDescription:
-      "Independent forensic fraud investigations for solicitors and businesses, with evidence-quality reporting and LPP where instructed via solicitors.",
+      "Independent forensic fraud investigations for law firms and businesses, with evidence-quality reporting and attorney-client privilege where engaged through counsel.",
     blocks: [
       {
         type: "prose",
         heading: "Independent Forensic Investigations",
         paragraphs: [
-          "Lawson Forensic conducts independent financial investigations for solicitors, businesses, and insurers, working under legal professional privilege where required to protect findings from premature disclosure.",
+          "Lawson Forensic conducts independent financial investigations for law firms, businesses, and insurers across the United States, working under attorney-client privilege where engaged through counsel to protect findings from premature disclosure.",
         ],
       },
       {
         type: "list",
         heading: "What We Investigate",
         items: [
-          "Suspected employee fraud or financial misconduct",
+          "Suspected employee fraud or embezzlement",
           "Unexplained financial transactions or irregularities",
           "Business disputes where financial records are contested",
           "Pre-litigation fact-finding to assess claim strength",
           "Insurance claim investigation (fraud or quantum)",
-          "Internal investigations prior to self-reporting or regulatory engagement",
+          "Internal investigations prior to regulatory or government engagement",
         ],
       },
       {
         type: "prose",
-        heading: "Legal Professional Privilege",
+        heading: "Attorney-Client Privilege",
         paragraphs: [
-          "Where instructed via a solicitor, investigation reports attract legal professional privilege until the client decides to disclose, protecting the ability to assess position before committing to a course of action.",
+          "Where engaged through counsel, investigation work may be protected by attorney-client privilege until the client decides to disclose, supporting informed strategy before litigation is filed.",
         ],
       },
       {
         type: "prose",
         heading: "Preliminary Assessments",
         paragraphs: [
-          "In urgent situations, particularly where a freezing injunction is being considered, we can provide a rapid preliminary assessment of the financial evidence to support the application.",
+          "In urgent situations, particularly where a temporary restraining order or preliminary injunction is being considered, we can provide a rapid preliminary assessment of the financial evidence.",
         ],
       },
     ],
@@ -128,26 +127,26 @@ export const services: Service[] = [
     id: "asset-tracing",
     title: "Asset Tracing",
     description:
-      "Tracing diverted funds and reconstructing financial flows to support recovery proceedings.",
-    metaTitle: "Asset Tracing | Lawson Forensic UK",
+      "Tracing diverted funds and reconstructing financial flows to support recovery and forfeiture proceedings.",
+    metaTitle: "Asset Tracing | Lawson Forensic USA",
     metaDescription:
-      "Forensic asset tracing and fund flow reconstruction for civil fraud recovery, insolvency, and dispute support.",
+      "Forensic asset tracing and fund flow reconstruction for civil fraud recovery, bankruptcy, and commercial disputes in the United States.",
     blocks: [
       {
         type: "prose",
         paragraphs: [
-          "Lawson Forensic traces diverted funds and reconstructs financial flows from primary records, supporting freezing injunction applications, civil recovery, and insolvency claims.",
-          "Our work includes bank statement analysis, identification of connected-party transfers, and chronologies linking transactions to alleged misconduct.",
+          "Lawson Forensic traces diverted funds and reconstructs financial flows from primary records, supporting TRO and preliminary injunction applications, civil recovery actions, and bankruptcy-related claims.",
+          "Our work includes bank statement analysis, identification of related-party transfers, and chronologies linking transactions to alleged misconduct.",
         ],
       },
       {
         type: "list",
         heading: "Typical instructions",
         items: [
-          "Tracing corporate funds diverted to connected accounts",
+          "Tracing corporate funds diverted to related accounts",
           "Identifying assets acquired with misappropriated funds",
-          "Supporting civil fraud and recovery proceedings",
-          "Insolvency preference and transaction claims",
+          "Supporting civil fraud and recovery litigation",
+          "Bankruptcy fraudulent transfer and preference analysis",
         ],
       },
     ],
@@ -156,44 +155,45 @@ export const services: Service[] = [
     id: "business-valuation",
     title: "Business Valuation",
     description:
-      "Contentious and matrimonial valuations with clear, court-ready methodology.",
-    metaTitle: "Business Valuation | Lawson Forensic UK",
+      "Contentious business and equity valuations with clear, litigation-ready methodology for disputes and marital dissolution.",
+    metaTitle: "Business Valuation | Lawson Forensic USA",
     metaDescription:
-      "Contentious and matrimonial business and share valuations with transparent, court-ready methodology.",
+      "Contentious business, share, and partnership valuations with transparent, court-ready methodology for U.S. litigation.",
     blocks: [
       {
         type: "prose",
         paragraphs: [
-          "We provide business and share valuations for commercial disputes, shareholder claims, and family financial remedy proceedings.",
-          "Methodology is selected for the specific proceedings and business type: maintainable earnings, DCF, or NAV as appropriate, with clear explanation for the court.",
+          "We provide business and equity valuations for commercial disputes, shareholder and partnership claims, and marital dissolution proceedings across the United States.",
+          "Methodology is selected for the specific matter and business type: income approach, discounted cash flow, or asset-based methods as appropriate, with clear explanation for the trier of fact.",
         ],
       },
       {
         type: "list",
         heading: "Matters we value",
         items: [
-          "Owner-managed and SME trading businesses",
-          "Shareholder and unfair prejudice disputes",
-          "Matrimonial business interests (FPR Part 25)",
-          "Completion accounts and breach of warranty disputes",
+          "Closely held and owner-managed businesses",
+          "Shareholder, oppression, and derivative disputes",
+          "Marital dissolution business interests",
+          "Purchase price adjustment and breach of warranty disputes",
+          "Partnership buyout and dissolution matters",
         ],
       },
     ],
   },
   {
     id: "loss-quantification",
-    title: "Loss Quantification",
+    title: "Loss & Damages Quantification",
     description:
-      "Loss of profits, consequential loss, and commercial dispute quantum analysis.",
-    metaTitle: "Loss Quantification | Lawson Forensic UK",
+      "Loss of profits, business interruption, consequential damages, and commercial dispute quantum analysis.",
+    metaTitle: "Loss & Damages Quantification | Lawson Forensic USA",
     metaDescription:
-      "Loss of profits and consequential loss quantification for commercial disputes and insurance claims.",
+      "Loss of profits, business interruption, and damages quantification for commercial disputes and insurance claims in the United States.",
     blocks: [
       {
         type: "prose",
         paragraphs: [
-          "Lawson Forensic quantifies financial loss in commercial disputes, including loss of profits, consequential loss, and additional costs arising from breach of contract or tort.",
-          "Analysis is based on financial records, counterfactual scenarios, and assumptions stated transparently so the court can follow the reasoning.",
+          "Lawson Forensic quantifies financial loss and damages in commercial disputes, including loss of profits, business interruption, consequential damages, and additional costs arising from breach of contract or tort.",
+          "Analysis is based on financial records, counterfactual scenarios, and assumptions stated transparently so the court or arbitrator can follow the reasoning.",
         ],
       },
       {
@@ -201,37 +201,39 @@ export const services: Service[] = [
         heading: "Common instructions",
         items: [
           "Loss of profits following breach of contract",
-          "Business interruption and consequential loss",
+          "Business interruption and consequential damages",
           "Shareholder and partnership dispute quantum",
-          "Professional negligence loss quantification",
+          "Professional negligence damages quantification",
+          "Insurance policy quantum and coverage disputes",
         ],
       },
     ],
   },
   {
     id: "family-matrimonial",
-    title: "Family & Matrimonial Accounting",
+    title: "Family & Marital Dissolution Accounting",
     description:
-      "Financial remedy, Form E review, business valuation, and income analysis.",
-    metaTitle: "Family & Matrimonial Accounting | Lawson Forensic UK",
+      "Marital dissolution financial analysis, business valuation, income reconstruction, and hidden asset investigation.",
+    metaTitle: "Marital Dissolution Forensic Accounting | Lawson Forensic USA",
     metaDescription:
-      "FPR Part 25 forensic accounting for financial remedy: Form E review, business valuation, income analysis, and add-backs.",
+      "Forensic accounting for marital dissolution: business valuation, income analysis, lifestyle review, and hidden asset investigation.",
     blocks: [
       {
         type: "prose",
         paragraphs: [
-          "We provide forensic accounting in financial remedy proceedings, including Form E review, business valuation, hidden asset and income investigation, add-backs, and liquidity analysis.",
-          "We accept party-appointed and single joint expert appointments under FPR Part 25.",
+          "We provide forensic accounting in marital dissolution proceedings, including business valuation, income reconstruction, hidden asset and income investigation, add-backs analysis, and liquidity assessment.",
+          "We accept party-retained and jointly retained expert appointments in family court matters.",
         ],
       },
       {
         type: "list",
-        heading: "Services in family proceedings",
+        heading: "Services in family matters",
         items: [
-          "Matrimonial business valuation",
+          "Marital business valuation",
           "Income analysis and add-backs",
-          "Form E review",
-          "Schedule 1 and TOLATA matters",
+          "Financial disclosure review",
+          "Lifestyle and cash flow analysis",
+          "Liquidity and distribution planning support",
         ],
       },
     ],

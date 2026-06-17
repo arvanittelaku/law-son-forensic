@@ -27,10 +27,10 @@ export const KEYWORD_MAPPINGS: KeywordMapping[] = [
   {
     tier: "transactional",
     keywords: [
-      "forensic accountant expert witness UK",
-      "forensic accounting expert witness UK",
-      "boutique forensic accounting UK",
-      "forensic accountant SJE UK",
+      "forensic accountant expert witness USA",
+      "forensic accounting expert witness United States",
+      "boutique forensic accounting USA",
+      "forensic accountant damages quantification",
     ],
     primaryUrls: ["/services/expert-witness", "/services"],
     secondaryUrls: ["/practice-areas", "/contact"],
@@ -39,8 +39,8 @@ export const KEYWORD_MAPPINGS: KeywordMapping[] = [
     tier: "informational",
     keywords: [
       "how to instruct forensic accountant expert witness",
-      "forensic accountant CPR Part 35 UK",
-      "single joint expert forensic accountant UK",
+      "forensic accountant Daubert expert witness",
+      "jointly retained forensic accountant commercial dispute",
     ],
     primaryUrls: [
       "/insights/instructing-forensic-accountant-guide",
@@ -52,19 +52,25 @@ export const KEYWORD_MAPPINGS: KeywordMapping[] = [
   },
   {
     tier: "practice-area",
-    keywords: ["forensic accountant commercial dispute UK"],
+    keywords: ["forensic accountant commercial dispute USA"],
     primaryUrls: ["/practice-areas/commercial-disputes"],
     secondaryUrls: ["/services/loss-quantification", "/case-studies"],
   },
   {
     tier: "practice-area",
-    keywords: ["forensic accountant divorce valuation UK"],
+    keywords: ["forensic accountant shareholder dispute valuation"],
+    primaryUrls: ["/practice-areas/commercial-disputes"],
+    secondaryUrls: ["/services/business-valuation", "/services/loss-quantification"],
+  },
+  {
+    tier: "practice-area",
+    keywords: ["forensic accountant divorce business valuation USA"],
     primaryUrls: ["/practice-areas/family-proceedings"],
     secondaryUrls: ["/insights/business-valuation-divorce-guide"],
   },
   {
     tier: "practice-area",
-    keywords: ["POCA expert witness forensic accountant UK"],
+    keywords: ["civil forfeiture forensic accountant expert witness"],
     primaryUrls: ["/practice-areas/fraud-financial-crime"],
     secondaryUrls: ["/insights/poca-benefit-calculation-guide"],
   },

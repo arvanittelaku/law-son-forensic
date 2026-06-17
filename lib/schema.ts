@@ -1,4 +1,4 @@
-import { SITE_URL, SITE_NAME, SITE_EMAIL } from "./site";
+import { SITE_URL, SITE_NAME, SITE_EMAIL, SITE_REGION } from "./site";
 import { getOrganizationSameAs } from "./seo/sameAs";
 import { services as siteServices, getService } from "./data/services";
 import { servicePath } from "./data/services";
@@ -53,8 +53,8 @@ export function homepageSchema() {
         url: SITE_URL,
         name: SITE_NAME,
         description:
-          "UK boutique forensic accounting practice providing expert witness reports, financial investigations, and dispute support.",
-        inLanguage: "en-GB",
+          "U.S. boutique forensic accounting practice providing expert witness reports, valuations, damages quantification, and dispute support.",
+        inLanguage: "en-US",
         publisher: { "@id": `${SITE_URL}/#organization` },
         potentialAction: {
           "@type": "SearchAction",
@@ -73,14 +73,14 @@ export function homepageSchema() {
         email: SITE_EMAIL,
         address: {
           "@type": "PostalAddress",
-          addressCountry: "GB",
+          addressCountry: "US",
         },
         areaServed: {
           "@type": "Country",
-          name: "United Kingdom",
+          name: SITE_REGION,
         },
         description:
-          "UK boutique forensic accounting practice providing expert witness reports, financial investigations, and dispute support.",
+          "U.S. boutique forensic accounting practice providing expert witness reports, business valuation, loss and damages quantification, and dispute support.",
         sameAs: getOrganizationSameAs(),
       },
       {
@@ -90,7 +90,7 @@ export function homepageSchema() {
         url: SITE_URL,
         serviceType: "Forensic Accounting",
         provider: { "@id": `${SITE_URL}/#organization` },
-        areaServed: "United Kingdom",
+        areaServed: SITE_REGION,
         hasOfferCatalog: {
           "@type": "OfferCatalog",
           name: "Forensic Accounting Services",
@@ -126,7 +126,7 @@ export function servicesPageSchema() {
         name: SITE_NAME,
         url: SITE_URL,
       },
-      areaServed: "United Kingdom",
+      areaServed: SITE_REGION,
     })),
   };
 }
@@ -142,7 +142,7 @@ export function servicePageSchema(serviceId: string) {
     description: service.description,
     url,
     provider: { "@id": `${SITE_URL}/#organization` },
-    areaServed: "United Kingdom",
+    areaServed: SITE_REGION,
   };
 }
 
@@ -162,7 +162,7 @@ export function articleSchema(article: {
     url,
     datePublished: article.datePublished,
     dateModified: article.dateModified,
-    inLanguage: "en-GB",
+    inLanguage: "en-US",
     author: {
       "@type": "Organization",
       name: SITE_NAME,

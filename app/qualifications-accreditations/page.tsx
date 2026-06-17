@@ -6,9 +6,9 @@ import { Section, Prose } from "@/components/Section";
 import { CTASection } from "@/components/CTASection";
 
 export const metadata = buildMetadata({
-  title: "Qualifications & Accreditations | Lawson Forensic UK",
+  title: "Qualifications & Accreditations | Lawson Forensic USA",
   description:
-    "Lawson Forensic's professional credentials: ICAEW, CFE, ICAEW Forensic Accreditation, Academy of Experts, and CPR Part 35 expert witness qualifications.",
+    "Lawson Forensic's professional credentials: CPA, CFF, CFE, business valuation accreditation, and U.S. expert witness qualifications.",
   path: "/qualifications-accreditations",
 });
 
@@ -35,64 +35,68 @@ export default function QualificationsPage() {
       <Section>
         <Prose>
           <h2>Professional Qualifications</h2>
-          <h3>ACA / FCA (ICAEW)</h3>
+          <h3>CPA (Certified Public Accountant)</h3>
           <p>
-            Fellow of the Institute of Chartered Accountants in England and Wales:
-            the primary UK chartered accountancy qualification and the baseline
-            credential for expert witness accounting work.
+            The primary U.S. accounting credential and the baseline qualification
+            for forensic accounting and expert witness work in federal and state
+            proceedings.
+          </p>
+          <h3>CFF (Certified in Financial Forensics)</h3>
+          <p>
+            AICPA specialist credential for forensic accounting, demonstrating
+            expertise in fraud investigation, litigation support, and dispute
+            resolution.
           </p>
           <h3>CFE (Certified Fraud Examiner)</h3>
           <p>
             Awarded by the Association of Certified Fraud Examiners (ACFE), the
-            primary global credential for fraud investigation and forensic accounting
-            specialists.
+            primary global credential for fraud investigation and forensic
+            accounting specialists.
           </p>
-          <h3>ICAEW Forensic &amp; Expert Witness Accreditation</h3>
+          <h3>ABV / CVA (Business Valuation)</h3>
           <p>
-            ICAEW&apos;s specialist forensic accounting accreditation, with rigorous
-            vetting ensuring court-recognised expertise as a practising expert witness.
+            Accredited in Business Valuation (ABV) or Certified Valuation Analyst
+            (CVA) credentials supporting contentious and non-contentious business
+            and equity valuations in litigation.
           </p>
 
           <h2>Professional Memberships</h2>
-          <h3>Academy of Experts</h3>
+          <h3>AICPA</h3>
           <p>
-            Full member of the Academy of Experts, the UK&apos;s leading body for expert
-            witnesses, providing training, guidance, and accreditation for experts
-            appearing in UK proceedings.
+            Member of the American Institute of Certified Public Accountants,
+            adhering to professional standards for forensic and litigation
+            support services.
           </p>
-          <h3>Expert Witness Institute (EWI)</h3>
+          <h3>ACFE</h3>
           <p>
-            Member of the Expert Witness Institute, promoting high professional standards
-            for expert witnesses in UK courts.
+            Member of the Association of Certified Fraud Examiners, with access
+            to continuing education in fraud detection and investigation
+            methodology.
           </p>
-          <h3>ACFE UK Chapter</h3>
+          <h3>NACVA</h3>
           <p>
-            Active member of the UK chapter of the Association of Certified Fraud Examiners.
+            Affiliation with valuation and forensic accounting communities
+            supporting court-facing business valuation work.
           </p>
 
           <h2>Expert Witness Standards</h2>
-          <h3>CPR Part 35 (Civil)</h3>
+          <h3>Federal Rule of Evidence 702</h3>
           <p>
-            All civil expert reports comply with CPR Part 35 and Practice Direction 35,
-            including a statement of truth and compliance with the requirements for an
-            independent expert&apos;s report.
+            Expert reports are prepared to meet FRE 702 and Daubert standards,
+            with transparent methodology, reliable data, and conclusions tied to
+            the facts of the case.
           </p>
-          <h3>FPR Part 25 (Family)</h3>
+          <h3>State Expert Evidence Rules</h3>
           <p>
-            Family court expert reports comply with FPR Part 25 and Practice Direction 25A,
-            including court permission requirements where applicable.
-          </p>
-          <h3>CrPR Part 33 (Criminal)</h3>
-          <p>
-            Criminal proceedings expert reports comply with Criminal Procedure Rules Part
-            33 and the Crim PD requirements for expert evidence.
+            We comply with applicable state expert evidence rules and court
+            requirements in the jurisdictions where we are retained.
           </p>
 
           <h2>Continuing Professional Development</h2>
           <p>
-            Lawson Forensic maintains active professional development, staying current with
-            accounting standards, procedural rules, relevant case law, and forensic
-            methodology developments.
+            Lawson Forensic maintains active professional development, staying
+            current with accounting standards, procedural rules, relevant case
+            law, and forensic methodology developments.
           </p>
         </Prose>
       </Section>

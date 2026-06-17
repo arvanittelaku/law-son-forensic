@@ -33,7 +33,7 @@ export function buildMetadata({
       description,
       url,
       siteName: SITE_NAME,
-      locale: "en_GB",
+      locale: "en_US",
       type: "website",
     },
     twitter: {
@@ -54,4 +54,4 @@ export function buildMetadata({
 
 /** Homepage title per SEO-ARCHITECTURE.md Appendix A */
 export const HOME_TITLE =
-  "Lawson Forensic | Forensic Accounting & Expert Witness UK";
+  "Lawson Forensic | Forensic Accounting & Expert Witness USA";

@@ -51,7 +51,7 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="en-GB" className={`${inter.variable} ${playfair.variable}`}>
+    <html lang="en-US" className={`${inter.variable} ${playfair.variable}`}>
       <body className="flex min-h-screen min-h-[100dvh] flex-col">
         <script
           dangerouslySetInnerHTML={{

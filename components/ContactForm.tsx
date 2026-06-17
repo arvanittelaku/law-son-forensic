@@ -27,7 +27,7 @@ const practiceAreas = [
 
 const referralSources = [
   "Search engine",
-  "Referral from solicitor",
+  "Referral from attorney",
   "Referral from colleague",
   "LinkedIn",
   "Professional body",

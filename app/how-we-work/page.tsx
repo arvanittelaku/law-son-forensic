@@ -19,7 +19,7 @@ const principles = [
   },
   {
     title: "Independence above all else",
-    text: "Our expert opinions reflect our honest view of the financial issues. We will advise solicitors promptly if our preliminary view is adverse to the instructing party, because early advice is always more useful than a late surprise.",
+    text: "Our expert opinions reflect our honest view of the financial issues. We will advise counsel promptly if our preliminary view is adverse to the retaining party, because early advice is always more useful than a late surprise.",
   },
   {
     title: "Clarity in every report",
@@ -41,8 +41,8 @@ const steps = [
   { step: "3", title: "Letter of instruction", text: "Review the instruction letter, raise queries if scope needs clarification. Confirm acceptance within 2 working days." },
   { step: "4", title: "Document review", text: "Receive and review all relevant financial documents. Request additional materials if needed." },
   { step: "5", title: "Analysis", text: "Conduct the forensic analysis, applying appropriate methodology, testing assumptions, identifying any matters outside our expertise." },
-  { step: "6", title: "Expert report", text: "Draft, review, and finalise the CPR/FPR/CrPR compliant expert report. Provide preliminary advice note if requested before formal report." },
-  { step: "7", title: "Written questions and oral evidence", text: "Respond to written questions; attend joint expert meetings; give oral evidence at hearing if required." },
+  { step: "6", title: "Expert report", text: "Draft, review, and finalise the expert report for applicable federal or state proceedings. Provide preliminary advice note if requested before formal report." },
+  { step: "7", title: "Deposition and trial testimony", text: "Respond to discovery; attend expert conferences; testify at deposition and trial if required." },
 ];
 
 export default function HowWeWorkPage() {

@@ -4,20 +4,20 @@ import { JsonLd } from "@/components/JsonLd";
 import { PageHero } from "@/components/PageHero";
 import { Section } from "@/components/Section";
 import { ContactForm } from "@/components/ContactForm";
-import { SITE_EMAIL } from "@/lib/site";
+import { SITE_EMAIL, SITE_REGION_NOTE } from "@/lib/site";
 
 export const metadata = buildMetadata({
-  title: "Contact Lawson Forensic | UK Forensic Accounting & Expert Witness",
+  title: "Contact Lawson Forensic | U.S. Forensic Accounting & Expert Witness",
   description:
-    "Contact Lawson Forensic to discuss a forensic accounting instruction. Solicitors, businesses, and insurers welcome. Response within one business day.",
+    "Contact Lawson Forensic to discuss a forensic accounting instruction. Law firms and businesses across the United States welcome. Response within one business day.",
   path: "/contact",
 });
 
 const trustPoints = [
   "Senior-led engagements",
-  "CPR Part 35 | FPR Part 25 | CrPR Part 33",
-  "SJE appointments available",
-  "Legal Aid accepted where appropriate",
+  "Expert witness & forensic accounting",
+  "Valuations, disputes & damages",
+  "United States clients only",
 ];
 
 export default function ContactPage() {
@@ -31,7 +31,7 @@ export default function ContactPage() {
       />
       <PageHero
         title="Contact Lawson Forensic"
-        subtitle="We respond to all enquiries within one business day. Please provide as much detail as possible about the matter so we can assess whether we are able to assist and confirm there is no conflict of interest."
+        subtitle={`We respond to all enquiries within one business day. ${SITE_REGION_NOTE}`}
         breadcrumbs={[
           { label: "Home", href: "/" },
           { label: "Contact" },

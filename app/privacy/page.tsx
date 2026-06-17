@@ -6,7 +6,7 @@ import { SITE_EMAIL, SITE_NAME } from "@/lib/site";
 
 export const metadata = buildMetadata({
   title: "Privacy Policy | Lawson Forensic",
-  description: "Privacy policy for Lawson Forensic website visitors and clients. UK GDPR compliant.",
+  description: "Privacy policy for Lawson Forensic website visitors and clients. U.S. privacy practices.",
   path: "/privacy",
   noindex: true,
 });
@@ -47,14 +47,14 @@ export default function PrivacyPage() {
           </p>
           <h2>Your rights</h2>
           <p>
-            Under UK GDPR you have rights of access, rectification, erasure, restriction,
-            objection, and data portability where applicable. Contact {SITE_EMAIL} to exercise
-            these rights. You may complain to the ICO.
+            Under applicable U.S. privacy laws you may have rights of access, correction,
+            deletion, and opt-out where applicable. Contact {SITE_EMAIL} to exercise
+            these rights.
           </p>
           <h2>International transfers</h2>
           <p>
-            Data is processed within the UK/EEA where possible. If third-party tools process
-            data outside the UK, we ensure appropriate safeguards.
+            Data is processed within the United States where possible. If third-party tools process
+            data outside the U.S., we use appropriate safeguards.
           </p>
           <h2>Contact</h2>
           <p>

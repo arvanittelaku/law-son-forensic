@@ -42,14 +42,18 @@ export function NavDropdown({
     align === "right" ? "right-0 left-auto" : "left-0 right-auto";
 
   return (
-    <div ref={ref} className="relative">
+    <div
+      ref={ref}
+      className="relative"
+      onMouseEnter={() => setOpen(true)}
+      onMouseLeave={() => setOpen(false)}
+    >
       <button
         type="button"
         className="inline-flex min-h-touch max-w-[11rem] items-center gap-1 rounded px-2 py-2 text-sm text-body transition hover:text-navy focus:outline-none focus-visible:ring-2 focus-visible:ring-gold xl:max-w-none"
         aria-expanded={open}
         aria-haspopup="true"
         onClick={() => setOpen(!open)}
-        onMouseEnter={() => setOpen(true)}
       >
         <Link
           href={href}
@@ -63,34 +67,37 @@ export function NavDropdown({
         </span>
       </button>
       {open && (
-        <ul
-          role="menu"
-          className={`absolute top-full z-50 mt-1 max-h-[min(70vh,24rem)] min-w-[min(100vw-2rem,16rem)] overflow-y-auto rounded-card border border-border bg-white py-2 shadow-card sm:min-w-[240px] ${menuPosition}`}
-          onMouseLeave={() => setOpen(false)}
+        <div
+          className={`absolute top-full z-50 pt-1 ${menuPosition}`}
         >
-          <li role="none">
-            <Link
-              href={href}
-              role="menuitem"
-              className="block px-4 py-2.5 text-sm font-semibold text-navy hover:bg-section-alt"
-              onClick={() => setOpen(false)}
-            >
-              All {label}
-            </Link>
-          </li>
-          {items.map((item) => (
-            <li key={item.href} role="none">
+          <ul
+            role="menu"
+            className="max-h-[min(70vh,24rem)] min-w-[min(100vw-2rem,16rem)] overflow-y-auto rounded-card border border-border bg-white py-2 shadow-card sm:min-w-[240px]"
+          >
+            <li role="none">
               <Link
-                href={item.href}
+                href={href}
                 role="menuitem"
-                className="block break-words px-4 py-2.5 text-sm text-body hover:bg-section-alt hover:text-navy"
+                className="block px-4 py-2.5 text-sm font-semibold text-navy hover:bg-section-alt"
                 onClick={() => setOpen(false)}
               >
-                {item.label}
+                All {label}
               </Link>
             </li>
-          ))}
-        </ul>
+            {items.map((item) => (
+              <li key={item.href} role="none">
+                <Link
+                  href={item.href}
+                  role="menuitem"
+                  className="block break-words px-4 py-2.5 text-sm text-body hover:bg-section-alt hover:text-navy"
+                  onClick={() => setOpen(false)}
+                >
+                  {item.label}
+                </Link>
+              </li>
+            ))}
+          </ul>
+        </div>
       )}
     </div>
   );

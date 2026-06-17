@@ -8,9 +8,9 @@ import { CTASection } from "@/components/CTASection";
 import { practiceAreas } from "@/lib/data/practice-areas";
 
 export const metadata = buildMetadata({
-  title: "Practice Areas | Lawson Forensic UK Forensic Accounting",
+  title: "Practice Areas | Lawson Forensic U.S. Forensic Accounting",
   description:
-    "Lawson Forensic's practice areas: commercial disputes, fraud, family law, personal injury, insolvency, and regulatory matters. Specialist forensic accounting across all major litigation types.",
+    "Lawson Forensic practice areas: commercial disputes, shareholder claims, fraud, marital dissolution, personal injury damages, bankruptcy, and regulatory matters.",
   path: "/practice-areas",
 });
 

@@ -8,9 +8,9 @@ import { CTASection } from "@/components/CTASection";
 import { services, servicePath } from "@/lib/data/services";
 
 export const metadata = buildMetadata({
-  title: "Forensic Accounting Services | Lawson Forensic UK",
+  title: "Forensic Accounting Services | Lawson Forensic USA",
   description:
-    "Lawson Forensic provides forensic accounting services across expert witness, fraud investigation, asset tracing, business valuation, loss quantification, and dispute support for UK solicitors.",
+    "Lawson Forensic provides forensic accounting services across expert witness, fraud investigation, asset tracing, business valuation, loss and damages quantification, and dispute support for U.S. law firms.",
   path: "/services",
 });
 
@@ -26,7 +26,7 @@ export default function ServicesPage() {
       />
       <PageHero
         title="Forensic Accounting Services"
-        subtitle="Senior-led forensic accounting and expert witness services for solicitors, businesses, and insurers across the UK."
+        subtitle="Senior-led forensic accounting and expert witness services for law firms, businesses, and insurers across the United States."
         breadcrumbs={[
           { label: "Home", href: "/" },
           { label: "Services" },

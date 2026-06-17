@@ -27,7 +27,7 @@ export default function TermsPage() {
           <p>
             {SITE_NAME} is an independent forensic accounting practice. We are not a law firm
             and do not provide legal advice. You should obtain legal advice from a qualified
-            solicitor for legal matters.
+            attorney for legal matters.
           </p>
           <h2>Professional services</h2>
           <p>
@@ -46,8 +46,8 @@ export default function TermsPage() {
           </p>
           <h2>Governing law</h2>
           <p>
-            These terms are governed by the laws of England and Wales. Courts of England and
-            Wales have exclusive jurisdiction.
+            These terms are governed by the laws of the State in which Lawson Forensic is
+            incorporated, without regard to conflict-of-law principles.
           </p>
         </Prose>
       </Section>

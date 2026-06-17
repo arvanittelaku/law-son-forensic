@@ -113,7 +113,7 @@ export function Footer() {
             not a law firm and do not provide legal advice.
           </p>
           <p className="mt-2 text-sm text-white/50">
-            &copy; {new Date().getFullYear()} {SITE_NAME}. England and Wales.
+            &copy; {new Date().getFullYear()} {SITE_NAME}. United States.
           </p>
         </div>
       </div>

@@ -1,30 +1,32 @@
+import { SITE_EMAIL, SITE_REGION_NOTE } from "../site";
+
 export type FAQ = { question: string; answer: string };
 
 export const siteFaqs: FAQ[] = [
   {
     question: "What is Lawson Forensic and what do you do?",
     answer:
-      "Lawson Forensic is an independent UK boutique forensic accounting practice. We provide expert witness reports, financial investigations, business valuation, loss quantification, and dispute support for solicitors, businesses, and insurers across civil, family, and criminal proceedings.",
+      "Lawson Forensic is an independent U.S. boutique forensic accounting practice. We provide expert witness reports, forensic accounting, business valuation, loss and damages quantification, shareholder dispute analysis, and dispute support for law firms, businesses, and insurers. " +
+      SITE_REGION_NOTE,
   },
   {
     question: "How do I instruct Lawson Forensic?",
-    answer:
-      "Contact us via the enquiry form on our website or email info@lawsonforensic.com with details of the matter. We will assess scope, conduct a conflicts check, and confirm availability. For formal instructions, we require a letter of instruction from your firm or organisation.",
+    answer: `Contact us via the enquiry form on our website or email ${SITE_EMAIL} with details of the matter. We will assess scope, conduct a conflicts check, and confirm availability. For formal instructions, we require an engagement letter or instruction from your firm or organisation.`,
   },
   {
-    question: "Are you CPR Part 35 compliant?",
+    question: "Do your expert reports meet U.S. court standards?",
     answer:
-      "Yes. All civil expert reports comply with CPR Part 35 and Practice Direction 35, including a statement of truth. Family reports comply with FPR Part 25 and criminal reports with CrPR Part 33. Our primary duty is to the court.",
+      "Yes. Our expert reports are prepared for use in U.S. federal and state proceedings and follow applicable expert evidence rules, including Federal Rule of Evidence 702 and relevant state standards. We apply transparent methodology designed to meet Daubert and equivalent scrutiny.",
   },
   {
-    question: "Do you accept SJE appointments?",
+    question: "Do you accept jointly retained expert appointments?",
     answer:
-      "Yes. We accept single joint expert appointments under CPR 35.7 for civil matters and FPR 25.11 for family proceedings, where jointly instructed by both parties.",
+      "Yes. We accept jointly retained expert appointments in commercial, shareholder, and family matters where both parties agree on a single forensic accountant. We also accept party-retained and court-appointed expert roles.",
   },
   {
     question: "What practice areas does Lawson Forensic cover?",
     answer:
-      "We work across commercial disputes, fraud and financial crime, family financial proceedings, personal injury and clinical negligence, insolvency, and regulatory matters. See our Practice Areas section for detail on each.",
+      "We work across commercial disputes, shareholder and partnership disputes, fraud and financial crime, marital dissolution, personal injury damages, bankruptcy and insolvency, and regulatory matters. See our Practice Areas section for detail on each.",
   },
   {
     question: "How quickly can you provide an expert report?",
@@ -35,17 +37,12 @@ export const siteFaqs: FAQ[] = [
     question:
       "What happens if your preliminary view is adverse to the party instructing you?",
     answer:
-      "We advise instructing solicitors promptly if our preliminary view may be adverse. Early advice is more useful than a late surprise. Our opinions reflect our honest independent view of the financial issues, consistent with our duty to the court.",
-  },
-  {
-    question: "Do you accept Legal Aid instructions?",
-    answer:
-      "Yes, for appropriate matters including family financial proceedings and some criminal defence work. Prior authority from the Legal Aid Agency is required before we accept instruction.",
+      "We advise instructing counsel promptly if our preliminary view may be adverse. Early advice is more useful than a late surprise. Our opinions reflect our honest independent view of the financial issues.",
   },
   {
     question: "What are your hourly rates?",
     answer:
-      "Standard engagements are typically charged at £250 to £400 per hour. Complex High Court and arbitration matters are £400 to £600 per hour. We provide a fee estimate at the outset of every instruction. Contact us to discuss guide prices for your matter.",
+      "Standard engagements are typically charged at $300 to $500 per hour. Complex federal litigation and arbitration matters are $500 to $750 per hour. We provide a fee estimate at the outset of every instruction. Contact us to discuss guide prices for your matter.",
   },
   {
     question: "How do you approach conflicts of interest?",
@@ -56,11 +53,16 @@ export const siteFaqs: FAQ[] = [
     question:
       "Can you provide a preliminary assessment before formal instruction?",
     answer:
-      "Yes. We offer rapid preliminary assessments where urgent proceedings require it, such as freezing injunction applications. This allows instructing parties to assess the strength of financial evidence before committing to a full expert report.",
+      "Yes. We offer rapid preliminary assessments where urgent proceedings require it, such as TRO or preliminary injunction applications. This allows parties to assess the strength of financial evidence before committing to a full expert report.",
   },
   {
     question: "Do you work on international matters?",
+    answer: SITE_REGION_NOTE,
+  },
+  {
+    question:
+      "What types of damages and disputes do you quantify?",
     answer:
-      "Our primary practice is UK proceedings and UK-based investigations. We can assist on international matters where UK forensic accounting expertise is required, or where proceedings have a UK nexus. Contact us to discuss scope.",
+      "We quantify loss of profits, business interruption, consequential damages, shareholder oppression claims, partnership disputes, fraud losses, and professional negligence damages. We also value businesses and equity interests in contentious proceedings.",
   },
 ];

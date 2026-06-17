@@ -5,11 +5,12 @@ import { JsonLd } from "@/components/JsonLd";
 import { PageHero } from "@/components/PageHero";
 import { Section, Prose } from "@/components/Section";
 import { CTASection } from "@/components/CTASection";
+import { SITE_REGION, SITE_REGION_NOTE } from "@/lib/site";
 
 export const metadata = buildMetadata({
-  title: "About Lawson Forensic | UK Boutique Forensic Accounting Practice",
+  title: "About Lawson Forensic | U.S. Forensic Accounting Practice",
   description:
-    "Lawson Forensic is a specialist UK forensic accounting practice. Senior-led engagements, CPR Part 35 compliance, and a track record across civil, family, and criminal proceedings.",
+    "Lawson Forensic is a specialist U.S. forensic accounting practice. Senior-led engagements, Daubert-ready expert reports, and a track record across commercial, family, and white-collar matters.",
   path: "/about",
 });
 
@@ -24,6 +25,7 @@ export default function AboutPage() {
       />
       <PageHero
         title="About Lawson Forensic"
+        subtitle={SITE_REGION_NOTE}
         breadcrumbs={[
           { label: "Home", href: "/" },
           { label: "About" },
@@ -40,10 +42,10 @@ export default function AboutPage() {
             passes work to a junior team.
           </p>
           <p>
-            We work with solicitors across the UK on expert witness instructions
-            in civil, family, and criminal proceedings. We also work directly
-            with businesses and insurers who need independent forensic accounting
-            support without the overhead of a large firm.
+            We work with law firms across the {SITE_REGION} on expert witness
+            instructions in commercial, family, and white-collar matters. We also
+            work directly with businesses and insurers who need independent
+            forensic accounting support without the overhead of a large firm.
           </p>
 
           <h2>Our Approach</h2>
@@ -54,18 +56,17 @@ export default function AboutPage() {
           </p>
           <p>
             Every expert report produced by Lawson Forensic reflects our honest,
-            independent view of the financial issues, consistent with our duty to
-            the court under CPR Part 35, regardless of which party has instructed
-            us.
+            independent view of the financial issues, with transparent methodology
+            designed to meet Federal Rule of Evidence 702 and applicable state
+            expert evidence standards.
           </p>
 
           <h2>Qualifications &amp; Accreditations</h2>
           <ul>
-            <li>ACA / FCA (ICAEW)</li>
+            <li>CPA (Certified Public Accountant)</li>
+            <li>CFF (Certified in Financial Forensics)</li>
             <li>CFE (Certified Fraud Examiner)</li>
-            <li>ICAEW Forensic &amp; Expert Witness Accreditation</li>
-            <li>Member: Academy of Experts</li>
-            <li>Member: Expert Witness Institute</li>
+            <li>ABV / CVA (Business Valuation credentials)</li>
           </ul>
           <p>
             <Link href="/qualifications-accreditations" className="text-gold hover:underline">
@@ -76,11 +77,12 @@ export default function AboutPage() {
           <h2>Scope of Practice</h2>
           <p>We accept instructions across:</p>
           <ul>
-            <li>Civil proceedings (High Court, County Court)</li>
-            <li>Family proceedings (FPR Part 25, Financial Remedy)</li>
-            <li>Criminal proceedings (CrPR Part 33, POCA)</li>
-            <li>Arbitration (LCIA, ICC)</li>
-            <li>Regulatory proceedings (FCA, HMRC, SFO support)</li>
+            <li>Commercial litigation (federal and state courts)</li>
+            <li>Shareholder and partnership disputes</li>
+            <li>Marital dissolution and family court matters</li>
+            <li>White-collar defence and civil forfeiture</li>
+            <li>Arbitration (AAA, JAMS, ICC)</li>
+            <li>SEC, DOJ, and IRS-related matters</li>
             <li>Private and pre-litigation investigations</li>
           </ul>
         </Prose>
