@@ -40,7 +40,7 @@ npm start
 | `GOOGLE_SITE_VERIFICATION` | Search Console |
 | `BING_SITE_VERIFICATION` | Bing Webmaster |
 
-Middleware redirects `lawsonforensic.com` to `www.lawsonforensic.com`.
+Domain canonicalization (apex ↔ www) is handled by Netlify's Primary domain setting.
 
 SEO files: `npm run seo:generate` writes `public/sitemap.xml` and `public/robots.txt`. See `docs/SEO.md` and `docs/SEO-ARCHITECTURE.md`.
 
