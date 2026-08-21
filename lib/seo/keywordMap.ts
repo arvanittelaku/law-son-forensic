@@ -59,7 +59,7 @@ export const KEYWORD_MAPPINGS: KeywordMapping[] = [
   {
     tier: "practice-area",
     keywords: ["forensic accountant shareholder dispute valuation"],
-    primaryUrls: ["/practice-areas/commercial-disputes"],
+    primaryUrls: ["/practice-areas/shareholder-disputes"],
     secondaryUrls: ["/services/business-valuation", "/services/loss-quantification"],
   },
   {
@@ -87,6 +87,10 @@ export function getUrlsForPracticeAreaSlug(slug: string): {
   > = {
     "commercial-disputes": {
       services: ["loss-quantification", "business-valuation"],
+      insights: ["choosing-single-joint-expert"],
+    },
+    "shareholder-disputes": {
+      services: ["business-valuation", "loss-quantification", "expert-witness"],
       insights: ["choosing-single-joint-expert"],
     },
     "fraud-financial-crime": {

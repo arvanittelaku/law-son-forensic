@@ -13,7 +13,7 @@ export function ResponsiveTable({
   return (
     <div>
       {heading && (
-        <h2 className="font-serif text-xl font-semibold text-navy sm:text-2xl">
+        <h2 className="font-serif text-xl font-semibold text-ink sm:text-2xl">
           {heading}
         </h2>
       )}
@@ -30,12 +30,12 @@ export function ResponsiveTable({
             <dl className="space-y-3">
               {columns.map((col, colIndex) => (
                 <div key={col}>
-                  <dt className="text-xs font-semibold uppercase tracking-wide text-charcoal">
+                  <dt className="text-xs font-semibold uppercase tracking-wide text-slate-muted">
                     {col}
                   </dt>
                   <dd
                     className={`mt-1 text-sm leading-relaxed ${
-                      colIndex === 0 ? "font-medium text-navy" : "text-body"
+                      colIndex === 0 ? "font-medium text-ink" : "text-body"
                     }`}
                   >
                     {row[colIndex]}
@@ -52,7 +52,7 @@ export function ResponsiveTable({
         }`}
       >
         <table className="w-full min-w-[520px] text-left text-sm lg:min-w-[600px]">
-          <thead className="bg-navy text-white">
+          <thead className="bg-ink text-white">
             <tr>
               {columns.map((col) => (
                 <th key={col} className="px-3 py-3 font-semibold lg:px-4">
@@ -68,7 +68,7 @@ export function ResponsiveTable({
                   <td
                     key={ci}
                     className={`px-3 py-3 lg:px-4 ${
-                      ci === 0 ? "font-medium text-navy" : "text-body"
+                      ci === 0 ? "font-medium text-ink" : "text-body"
                     }`}
                   >
                     {cell}

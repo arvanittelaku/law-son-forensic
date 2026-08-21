@@ -1,5 +1,5 @@
 import type { Metadata, Viewport } from "next";
-import { Inter, Playfair_Display } from "next/font/google";
+import { Source_Sans_3, Cormorant_Garamond } from "next/font/google";
 import "./globals.css";
 import { Header } from "@/components/Header";
 import { Footer } from "@/components/Footer";
@@ -9,15 +9,16 @@ import { CookiePreferencesModal } from "@/components/cookies/CookiePreferencesMo
 import { SITE_URL, SITE_NAME } from "@/lib/site";
 import { HOME_TITLE } from "@/lib/metadata";
 
-const inter = Inter({
+const sourceSans = Source_Sans_3({
   subsets: ["latin"],
-  variable: "--font-inter",
+  variable: "--font-source",
   display: "swap",
 });
 
-const playfair = Playfair_Display({
+const cormorant = Cormorant_Garamond({
   subsets: ["latin"],
-  variable: "--font-playfair",
+  weight: ["400", "500", "600", "700"],
+  variable: "--font-cormorant",
   display: "swap",
 });
 
@@ -51,7 +52,7 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="en-US" className={`${inter.variable} ${playfair.variable}`}>
+    <html lang="en-US" className={`${sourceSans.variable} ${cormorant.variable}`}>
       <body className="flex min-h-screen min-h-[100dvh] flex-col">
         <script
           dangerouslySetInnerHTML={{

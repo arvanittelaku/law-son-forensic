@@ -43,15 +43,15 @@ export default function ContactPage() {
           <div className="min-w-0 lg:order-1 lg:col-span-2">
             <ContactForm />
           </div>
-          <aside className="min-w-0 rounded-card border border-border bg-section-alt p-5 shadow-card sm:p-6 lg:order-2">
-            <h2 className="font-serif text-lg font-semibold text-navy">
+          <aside className="min-w-0 rounded-card border border-border bg-stone-dark p-5 shadow-card sm:p-6 lg:order-2">
+            <h2 className="font-serif text-lg font-semibold text-ink">
               Contact details
             </h2>
             <p className="mt-4 text-body">
               Email:{" "}
               <a
                 href={`mailto:${SITE_EMAIL}`}
-                className="break-all font-semibold text-gold hover:underline"
+                className="break-all font-semibold text-copper hover:underline"
               >
                 {SITE_EMAIL}
               </a>
@@ -59,14 +59,14 @@ export default function ContactPage() {
             <p className="mt-2 text-sm text-body">
               Response within one business day
             </p>
-            <h3 className="mt-8 font-serif text-base font-semibold text-navy">
+            <h3 className="mt-8 font-serif text-base font-semibold text-ink">
               Why instruct Lawson Forensic
             </h3>
             <ul className="mt-4 space-y-3">
               {trustPoints.map((point) => (
                 <li
                   key={point}
-                  className="flex gap-2 text-sm text-body before:text-gold before:content-['✓']"
+                  className="flex gap-2 text-sm text-body before:text-copper before:content-['✓']"
                 >
                   {point}
                 </li>

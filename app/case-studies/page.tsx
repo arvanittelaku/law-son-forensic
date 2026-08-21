@@ -43,32 +43,32 @@ export default function CaseStudiesPage() {
           {caseStudies.map((study) => (
             <article
               key={study.title}
-              className="rounded-card border border-border border-l-4 border-l-gold bg-white p-8 shadow-card"
+              className="rounded-card border border-border border-l-4 border-l-copper bg-white p-8 shadow-card"
             >
-              <h2 className="font-serif text-xl font-semibold text-navy md:text-2xl">
+              <h2 className="font-serif text-xl font-semibold text-ink md:text-2xl">
                 {study.title}
               </h2>
               <div className="mt-6 space-y-4 text-body leading-relaxed">
                 <div>
-                  <h3 className="text-sm font-semibold uppercase tracking-wide text-gold">
+                  <h3 className="text-sm font-semibold uppercase tracking-wide text-copper">
                     Background
                   </h3>
                   <p className="mt-1">{study.background}</p>
                 </div>
                 <div>
-                  <h3 className="text-sm font-semibold uppercase tracking-wide text-gold">
+                  <h3 className="text-sm font-semibold uppercase tracking-wide text-copper">
                     Instruction
                   </h3>
                   <p className="mt-1">{study.instruction}</p>
                 </div>
                 <div>
-                  <h3 className="text-sm font-semibold uppercase tracking-wide text-gold">
+                  <h3 className="text-sm font-semibold uppercase tracking-wide text-copper">
                     Approach
                   </h3>
                   <p className="mt-1">{study.approach}</p>
                 </div>
                 <div>
-                  <h3 className="text-sm font-semibold uppercase tracking-wide text-gold">
+                  <h3 className="text-sm font-semibold uppercase tracking-wide text-copper">
                     Outcome
                   </h3>
                   <p className="mt-1">{study.outcome}</p>

@@ -13,7 +13,7 @@ export function CookieSettingsButton({
     <button
       type="button"
       onClick={openSettings}
-      className={`text-sm underline-offset-2 transition hover:underline focus:outline-none focus-visible:ring-2 focus-visible:ring-gold ${className}`}
+      className={`text-sm underline-offset-2 transition hover:underline focus:outline-none focus-visible:ring-2 focus-visible:ring-copper ${className}`}
     >
       Cookie Settings
     </button>

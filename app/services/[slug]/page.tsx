@@ -67,7 +67,7 @@ export default async function ServicePage({ params }: Props) {
       </Section>
 
       <Section alt>
-        <h2 className="font-serif text-2xl font-semibold text-navy md:text-3xl">
+        <h2 className="font-serif text-2xl font-semibold text-ink md:text-3xl">
           Frequently asked questions
         </h2>
         <p className="mt-2 max-w-2xl text-body">

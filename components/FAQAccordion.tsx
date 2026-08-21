@@ -19,14 +19,14 @@ export function FAQAccordion({ faqs }: { faqs: FAQ[] }) {
                 id={`${id}-button`}
                 aria-expanded={isOpen}
                 aria-controls={`${id}-panel`}
-                className="flex min-h-touch w-full items-start justify-between gap-4 px-4 py-4 text-left font-semibold text-navy transition hover:bg-section-alt focus:outline-none focus-visible:ring-2 focus-visible:ring-inset focus-visible:ring-gold sm:px-5"
+                className="flex min-h-touch w-full items-start justify-between gap-4 px-4 py-4 text-left font-semibold text-ink transition hover:bg-stone-dark focus:outline-none focus-visible:ring-2 focus-visible:ring-inset focus-visible:ring-copper sm:px-5"
                 onClick={() => setOpenIndex(isOpen ? null : index)}
               >
                 <span className="min-w-0 flex-1 break-words text-sm sm:text-base">
                   {faq.question}
                 </span>
                 <span
-                  className={`mt-1 shrink-0 text-gold transition ${isOpen ? "rotate-180" : ""}`}
+                  className={`mt-1 shrink-0 text-copper transition ${isOpen ? "rotate-180" : ""}`}
                   aria-hidden="true"
                 >
                   ▼

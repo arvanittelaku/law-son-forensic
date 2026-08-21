@@ -50,35 +50,33 @@ export function NavDropdown({
     >
       <button
         type="button"
-        className="inline-flex min-h-touch max-w-[11rem] items-center gap-1 rounded px-2 py-2 text-sm text-body transition hover:text-navy focus:outline-none focus-visible:ring-2 focus-visible:ring-gold xl:max-w-none"
+        className="inline-flex min-h-touch max-w-[11rem] items-center gap-1 rounded px-2 py-2 text-sm font-medium text-body transition hover:text-ink focus:outline-none focus-visible:ring-2 focus-visible:ring-copper xl:max-w-none xl:px-3"
         aria-expanded={open}
         aria-haspopup="true"
         onClick={() => setOpen(!open)}
       >
         <Link
           href={href}
-          className="truncate hover:text-navy"
+          className="truncate hover:text-ink"
           onClick={(e) => e.stopPropagation()}
         >
           {label}
         </Link>
-        <span className="shrink-0 text-xs text-charcoal" aria-hidden="true">
+        <span className="shrink-0 text-xs text-sage" aria-hidden="true">
           ▾
         </span>
       </button>
       {open && (
-        <div
-          className={`absolute top-full z-50 pt-1 ${menuPosition}`}
-        >
+        <div className={`absolute top-full z-50 pt-1 ${menuPosition}`}>
           <ul
             role="menu"
-            className="max-h-[min(70vh,24rem)] min-w-[min(100vw-2rem,16rem)] overflow-y-auto rounded-card border border-border bg-white py-2 shadow-card sm:min-w-[240px]"
+            className="max-h-[min(70vh,24rem)] min-w-[min(100vw-2rem,16rem)] overflow-y-auto rounded-card border border-border bg-white py-2 shadow-elevated sm:min-w-[260px]"
           >
             <li role="none">
               <Link
                 href={href}
                 role="menuitem"
-                className="block px-4 py-2.5 text-sm font-semibold text-navy hover:bg-section-alt"
+                className="block px-4 py-2.5 text-sm font-semibold text-ink hover:bg-stone"
                 onClick={() => setOpen(false)}
               >
                 All {label}
@@ -89,7 +87,7 @@ export function NavDropdown({
                 <Link
                   href={item.href}
                   role="menuitem"
-                  className="block break-words px-4 py-2.5 text-sm text-body hover:bg-section-alt hover:text-navy"
+                  className="block break-words px-4 py-2.5 text-sm text-body hover:bg-stone hover:text-ink"
                   onClick={() => setOpen(false)}
                 >
                   {item.label}

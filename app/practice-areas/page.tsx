@@ -37,15 +37,15 @@ export default function PracticeAreasPage() {
             <Link
               key={area.slug}
               href={`/practice-areas/${area.slug}`}
-              className="group rounded-card border border-border bg-white p-8 shadow-card transition hover:border-gold focus:outline-none focus-visible:ring-2 focus-visible:ring-gold"
+              className="group rounded-card border border-border bg-white p-8 shadow-card transition hover:border-copper focus:outline-none focus-visible:ring-2 focus-visible:ring-copper"
             >
-              <h2 className="font-serif text-xl font-semibold text-navy group-hover:text-gold">
+              <h2 className="font-serif text-xl font-semibold text-ink group-hover:text-copper">
                 {area.title}
               </h2>
               <p className="mt-3 text-body leading-relaxed">
                 {area.shortDescription}
               </p>
-              <span className="mt-4 inline-block text-sm font-semibold text-gold">
+              <span className="mt-4 inline-block text-sm font-semibold text-copper">
                 View practice area
               </span>
             </Link>

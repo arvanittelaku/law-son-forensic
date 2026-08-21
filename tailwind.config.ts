@@ -14,34 +14,44 @@ const config: Config = {
       lg: "1024px",
       xl: "1280px",
       "2xl": "1536px",
-      /** Wide enough for full desktop nav with dropdowns */
       nav: "1200px",
     },
     extend: {
       colors: {
-        navy: "#0A1628",
-        gold: "#C9A84C",
-        charcoal: "#2C3E50",
-        "section-alt": "#FAFBFC",
-        border: "#E8EDF2",
-        heading: "#0A1628",
-        body: "#374151",
+        ink: "#152028",
+        copper: "#C67B4E",
+        sage: "#5A7D6C",
+        stone: "#F7F4EF",
+        "stone-dark": "#EDE9E2",
+        border: "#D4CFC7",
+        heading: "#152028",
+        body: "#3D4F56",
+        "slate-muted": "#4A5F68",
       },
       fontFamily: {
-        serif: ["var(--font-playfair)", "Georgia", "serif"],
-        sans: ["var(--font-inter)", "system-ui", "sans-serif"],
+        serif: ["var(--font-cormorant)", "Georgia", "serif"],
+        sans: ["var(--font-source)", "system-ui", "sans-serif"],
       },
       borderRadius: {
-        card: "6px",
+        card: "10px",
+        pill: "9999px",
       },
       boxShadow: {
-        card: "0 2px 12px rgba(0,0,0,0.06), 0 1px 3px rgba(0,0,0,0.04)",
+        card: "0 1px 3px rgba(21, 32, 40, 0.06), 0 4px 16px rgba(21, 32, 40, 0.04)",
+        elevated: "0 8px 32px rgba(21, 32, 40, 0.08)",
       },
       minHeight: {
         touch: "44px",
       },
       minWidth: {
         touch: "44px",
+      },
+      backgroundImage: {
+        "hero-pattern":
+          "linear-gradient(135deg, rgba(198, 123, 78, 0.08) 25%, transparent 25%), linear-gradient(225deg, rgba(198, 123, 78, 0.08) 25%, transparent 25%), linear-gradient(45deg, rgba(198, 123, 78, 0.08) 25%, transparent 25%), linear-gradient(315deg, rgba(198, 123, 78, 0.08) 25%, transparent 25%)",
+      },
+      backgroundSize: {
+        pattern: "24px 24px",
       },
     },
   },

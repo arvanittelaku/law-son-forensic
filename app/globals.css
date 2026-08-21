@@ -9,7 +9,7 @@
   }
 
   body {
-    @apply min-w-0 overflow-x-hidden bg-white font-sans text-body antialiased;
+    @apply min-w-0 overflow-x-hidden bg-stone font-sans text-body antialiased;
   }
 
   main {
@@ -32,7 +32,11 @@
 
 @layer components {
   .container-page {
-    @apply mx-auto w-full max-w-6xl px-4 sm:px-6 lg:px-8;
+    @apply mx-auto w-full max-w-7xl px-4 sm:px-6 lg:px-8;
+  }
+
+  .container-narrow {
+    @apply mx-auto w-full max-w-4xl px-4 sm:px-6 lg:px-8;
   }
 
   .hero-cta-group {
@@ -42,6 +46,18 @@
   .hero-cta-group > a,
   .hero-cta-group > button {
     @apply w-full sm:w-auto;
+  }
+
+  .accent-bar {
+    @apply h-1 w-12 rounded-pill bg-copper;
+  }
+
+  .card-accent {
+    @apply rounded-card border border-border bg-white p-6 shadow-card transition hover:border-copper/40 hover:shadow-elevated;
+  }
+
+  .section-label {
+    @apply text-xs font-semibold uppercase tracking-[0.15em] text-sage;
   }
 }
 

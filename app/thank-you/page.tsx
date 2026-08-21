@@ -14,9 +14,9 @@ export const metadata = buildMetadata({
 export default function ThankYouPage() {
   return (
     <>
-      <section className="bg-navy py-12 sm:py-16 md:py-24">
+      <section className="bg-ink py-12 sm:py-16 md:py-24">
         <div className="container-page text-center">
-          <p className="font-serif text-sm font-semibold uppercase tracking-wide text-gold">
+          <p className="font-serif text-sm font-semibold uppercase tracking-wide text-copper">
             Enquiry received
           </p>
           <h1 className="mt-4 font-serif text-2xl font-semibold text-white xs:text-3xl md:text-4xl">
@@ -34,7 +34,7 @@ export default function ThankYouPage() {
             If your matter is urgent, please email us directly at{" "}
             <a
               href={`mailto:${SITE_EMAIL}`}
-              className="break-all font-semibold text-gold hover:underline"
+              className="break-all font-semibold text-copper hover:underline"
             >
               {SITE_EMAIL}
             </a>
@@ -47,17 +47,17 @@ export default function ThankYouPage() {
             <Button
               href="/services"
               variant="outline"
-              className="w-full border-gold text-navy sm:w-auto"
+              className="w-full border-copper text-ink sm:w-auto"
             >
               View Services
             </Button>
           </div>
-          <p className="mt-10 text-sm text-charcoal">
-            <Link href="/how-we-work" className="text-gold hover:underline">
+          <p className="mt-10 text-sm text-slate-muted">
+            <Link href="/how-we-work" className="text-copper hover:underline">
               How we work
             </Link>
             {" · "}
-            <Link href="/faq" className="text-gold hover:underline">
+            <Link href="/faq" className="text-copper hover:underline">
               FAQ
             </Link>
           </p>

@@ -3,13 +3,13 @@ import { ResponsiveTable } from "@/components/ui/ResponsiveTable";
 
 export function ServiceContent({ blocks }: { blocks: ServiceContentBlock[] }) {
   return (
-    <div className="prose-lawson max-w-none space-y-8">
+    <div className="prose-content max-w-none space-y-8">
       {blocks.map((block, i) => {
         if (block.type === "prose") {
           return (
             <div key={i}>
               {block.heading && (
-                <h2 className="font-serif text-xl font-semibold text-navy sm:text-2xl">
+                <h2 className="font-serif text-xl font-semibold text-ink sm:text-2xl">
                   {block.heading}
                 </h2>
               )}
@@ -26,7 +26,7 @@ export function ServiceContent({ blocks }: { blocks: ServiceContentBlock[] }) {
         if (block.type === "list") {
           return (
             <div key={i}>
-              <h2 className="font-serif text-xl font-semibold text-navy sm:text-2xl">
+              <h2 className="font-serif text-xl font-semibold text-ink sm:text-2xl">
                 {block.heading}
               </h2>
               <ul className="mt-4 list-disc space-y-2 pl-5 text-base text-body sm:pl-6">

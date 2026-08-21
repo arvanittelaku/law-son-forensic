@@ -16,7 +16,7 @@ export default function TermsPage() {
       <PageHero title="Terms of Use" breadcrumbs={[{ label: "Home", href: "/" }, { label: "Terms" }]} />
       <Section>
         <Prose>
-          <p className="text-sm text-charcoal">Last updated: June 2025</p>
+          <p className="text-sm text-slate-muted">Last updated: June 2025</p>
           <h2>Website use</h2>
           <p>
             This website is operated by {SITE_NAME}. By using this site you agree to these

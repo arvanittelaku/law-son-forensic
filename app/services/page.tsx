@@ -41,7 +41,7 @@ export default function ServicesPage() {
               id={service.id}
               className="scroll-mt-24 rounded-card border border-border bg-white p-8 shadow-card"
             >
-              <h2 className="font-serif text-xl font-semibold text-navy">
+              <h2 className="font-serif text-xl font-semibold text-ink">
                 {service.title}
               </h2>
               <p className="mt-3 text-body leading-relaxed">
@@ -49,7 +49,7 @@ export default function ServicesPage() {
               </p>
               <Link
                 href={servicePath(service.id)}
-                className="mt-4 inline-flex min-h-touch items-center text-sm font-semibold text-gold hover:underline"
+                className="mt-4 inline-flex min-h-touch items-center text-sm font-semibold text-copper hover:underline"
               >
                 Learn more
               </Link>

@@ -63,7 +63,7 @@ export default async function PracticeAreaPage({ params }: Props) {
             <p key={i}>{p}</p>
           ))}
         </Prose>
-        <h2 className="mt-12 font-serif text-2xl font-semibold text-navy">
+        <h2 className="mt-12 font-serif text-2xl font-semibold text-ink">
           Frequently asked questions
         </h2>
         <div className="mt-6">

@@ -73,7 +73,7 @@ export function CookiePreferencesModal() {
 
   return (
     <div
-      className="fixed inset-0 z-[110] flex items-end justify-center bg-navy/70 p-0 sm:items-center sm:p-4"
+      className="fixed inset-0 z-[110] flex items-end justify-center bg-ink/70 p-0 sm:items-center sm:p-4"
       role="presentation"
       onClick={(e) => {
         if (e.target === e.currentTarget) savePreferences(preferences);
@@ -84,19 +84,19 @@ export function CookiePreferencesModal() {
         role="dialog"
         aria-labelledby="cookie-modal-title"
         aria-modal="true"
-        className="max-h-[90vh] w-full max-w-lg overflow-y-auto rounded-t-card border-2 border-gold bg-white shadow-card animate-fade-in sm:rounded-card"
+        className="max-h-[90vh] w-full max-w-lg overflow-y-auto rounded-t-card border-2 border-copper bg-white shadow-card animate-fade-in sm:rounded-card"
       >
         <div className="border-b border-border p-6">
           <h2
             id="cookie-modal-title"
-            className="font-serif text-xl font-semibold text-navy"
+            className="font-serif text-xl font-semibold text-ink"
           >
             Cookie settings
           </h2>
           <p className="mt-2 text-sm text-body">
             Manage your cookie preferences. Necessary cookies are always active.
             Read our{" "}
-            <Link href="/cookies" className="text-gold hover:underline">
+            <Link href="/cookies" className="text-copper hover:underline">
               Cookie Policy
             </Link>
             .
@@ -107,7 +107,7 @@ export function CookiePreferencesModal() {
           {categories.map((cat) => (
             <li key={cat.key} className="flex gap-4 py-4 first:pt-0 last:pb-0">
               <div className="flex-1">
-                <p className="font-semibold text-navy">{cat.label}</p>
+                <p className="font-semibold text-ink">{cat.label}</p>
                 <p className="mt-1 text-sm text-body">{cat.description}</p>
               </div>
               <button
@@ -117,11 +117,11 @@ export function CookiePreferencesModal() {
                 aria-label={`${cat.label} ${draft[cat.key] ? "on" : "off"}`}
                 disabled={cat.locked}
                 onClick={() => toggle(cat.key)}
-                className={`relative mt-1 h-7 w-12 shrink-0 rounded-full transition focus:outline-none focus-visible:ring-2 focus-visible:ring-gold ${
+                className={`relative mt-1 h-7 w-12 shrink-0 rounded-full transition focus:outline-none focus-visible:ring-2 focus-visible:ring-copper ${
                   cat.locked
-                    ? "cursor-not-allowed bg-gold/40"
+                    ? "cursor-not-allowed bg-copper/40"
                     : draft[cat.key]
-                      ? "bg-gold"
+                      ? "bg-copper"
                       : "bg-border"
                 }`}
               >
@@ -140,14 +140,14 @@ export function CookiePreferencesModal() {
             ref={firstFocusRef}
             type="button"
             onClick={() => savePreferences(draft)}
-            className="min-h-touch flex-1 rounded-card border-2 border-gold bg-navy px-4 py-2.5 text-sm font-semibold text-white hover:bg-charcoal focus:outline-none focus-visible:ring-2 focus-visible:ring-gold"
+            className="min-h-touch flex-1 rounded-card border-2 border-copper bg-ink px-4 py-2.5 text-sm font-semibold text-white hover:bg-slate-muted focus:outline-none focus-visible:ring-2 focus-visible:ring-copper"
           >
             Save preferences
           </button>
           <button
             type="button"
             onClick={acceptAll}
-            className="min-h-touch flex-1 rounded-card border-2 border-gold bg-gold px-4 py-2.5 text-sm font-semibold text-navy hover:bg-white focus:outline-none focus-visible:ring-2 focus-visible:ring-gold"
+            className="min-h-touch flex-1 rounded-card border-2 border-copper bg-copper px-4 py-2.5 text-sm font-semibold text-ink hover:bg-white focus:outline-none focus-visible:ring-2 focus-visible:ring-copper"
           >
             Accept all
           </button>

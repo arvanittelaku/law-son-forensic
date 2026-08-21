@@ -17,7 +17,7 @@ export default function PrivacyPage() {
       <PageHero title="Privacy Policy" breadcrumbs={[{ label: "Home", href: "/" }, { label: "Privacy" }]} />
       <Section>
         <Prose>
-          <p className="text-sm text-charcoal">Last updated: June 2025</p>
+          <p className="text-sm text-slate-muted">Last updated: June 2025</p>
           <h2>Who we are</h2>
           <p>
             {SITE_NAME} ({SITE_EMAIL}) is the data controller for personal data collected
@@ -28,7 +28,7 @@ export default function PrivacyPage() {
             We may collect: name, organisation, email, phone, and matter details submitted
             via our contact form; technical data such as IP address and browser type when
             you use our website; and cookie data as described in our{" "}
-            <Link href="/cookies" className="text-gold hover:underline">
+            <Link href="/cookies" className="text-copper hover:underline">
               Cookie Policy
             </Link>
             .
@@ -58,7 +58,7 @@ export default function PrivacyPage() {
           </p>
           <h2>Contact</h2>
           <p>
-            Questions: <a href={`mailto:${SITE_EMAIL}`} className="text-gold hover:underline">{SITE_EMAIL}</a>
+            Questions: <a href={`mailto:${SITE_EMAIL}`} className="text-copper hover:underline">{SITE_EMAIL}</a>
           </p>
         </Prose>
       </Section>

@@ -41,7 +41,7 @@ export default function InsightsPage() {
             >
               <time
                 dateTime={article.datePublished}
-                className="text-xs font-semibold uppercase tracking-wide text-gold"
+                className="text-xs font-semibold uppercase tracking-wide text-copper"
               >
                 {new Date(article.datePublished).toLocaleDateString("en-GB", {
                   day: "numeric",
@@ -49,10 +49,10 @@ export default function InsightsPage() {
                   year: "numeric",
                 })}
               </time>
-              <h2 className="mt-3 font-serif text-xl font-semibold text-navy">
+              <h2 className="mt-3 font-serif text-xl font-semibold text-ink">
                 <Link
                   href={`/insights/${article.slug}`}
-                  className="hover:text-gold focus:outline-none focus-visible:underline"
+                  className="hover:text-copper focus:outline-none focus-visible:underline"
                 >
                   {article.title}
                 </Link>
@@ -60,7 +60,7 @@ export default function InsightsPage() {
               <p className="mt-3 text-body leading-relaxed">{article.excerpt}</p>
               <Link
                 href={`/insights/${article.slug}`}
-                className="mt-4 inline-flex min-h-touch items-center text-sm font-semibold text-gold hover:underline"
+                className="mt-4 inline-flex min-h-touch items-center text-sm font-semibold text-copper hover:underline"
               >
                 Read article
               </Link>

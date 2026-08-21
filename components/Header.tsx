@@ -3,12 +3,12 @@
 import Link from "next/link";
 import { useState, useEffect } from "react";
 import { SITE_NAME } from "@/lib/site";
+import { TopBar } from "./TopBar";
 import { NavDropdown } from "./NavDropdown";
 import { services, servicePath } from "@/lib/data/services";
 import { practiceAreas } from "@/lib/data/practice-areas";
 
 const simpleNavLinks = [
-  { href: "/", label: "Home" },
   { href: "/about", label: "About" },
   { href: "/case-studies", label: "Case Studies" },
   { href: "/insights", label: "Insights" },
@@ -26,7 +26,7 @@ const practiceAreaDropdownItems = practiceAreas.map((p) => ({
 
 const mobileGroups = [
   {
-    label: "About",
+    label: "About the Firm",
     links: [
       { href: "/about", label: "About" },
       { href: "/how-we-work", label: "How We Work" },
@@ -48,12 +48,9 @@ const mobileGroups = [
     ],
   },
   {
-    label: "Experience",
-    links: [{ href: "/case-studies", label: "Case Studies" }],
-  },
-  {
-    label: "Resources",
+    label: "Experience & Resources",
     links: [
+      { href: "/case-studies", label: "Case Studies" },
       { href: "/insights", label: "Insights" },
       { href: "/faq", label: "FAQ" },
     ],
@@ -71,24 +68,37 @@ export function Header() {
   }, [open]);
 
   return (
-    <header className="sticky top-0 z-50 border-b border-border bg-white/95 backdrop-blur-sm pt-safe">
-      <div className="container-page flex items-center justify-between gap-3 py-3">
+    <header className="sticky top-0 z-50 border-b-[3px] border-copper bg-white shadow-sm">
+      <TopBar />
+
+      <div className="container-page flex items-center justify-between gap-4 py-3 sm:py-4">
         <Link
           href="/"
-          className="min-h-touch shrink-0 font-serif text-base font-semibold text-navy focus:outline-none focus-visible:ring-2 focus-visible:ring-gold xs:text-lg nav:text-xl"
+          className="group min-h-touch shrink-0 focus:outline-none focus-visible:ring-2 focus-visible:ring-copper"
         >
-          {SITE_NAME}
+          <span className="block font-serif text-xl font-bold tracking-tight text-ink transition group-hover:text-copper xs:text-2xl nav:text-[1.65rem]">
+            {SITE_NAME}
+          </span>
+          <span className="mt-0.5 block text-[0.65rem] font-semibold uppercase tracking-[0.12em] text-sage xs:text-xs">
+            Forensic Accounting &amp; Litigation Support
+          </span>
         </Link>
 
         <nav
-          className="hidden items-center gap-0.5 nav:flex xl:gap-2"
+          className="hidden items-center gap-1 nav:flex xl:gap-3"
           aria-label="Main navigation"
         >
-          {simpleNavLinks.slice(0, 2).map((link) => (
+          <Link
+            href="/"
+            className="inline-flex min-h-touch items-center rounded px-2 py-2 text-sm font-medium text-body transition hover:text-ink focus:outline-none focus-visible:ring-2 focus-visible:ring-copper xl:px-3"
+          >
+            Home
+          </Link>
+          {simpleNavLinks.map((link) => (
             <Link
               key={link.href}
               href={link.href}
-              className="inline-flex min-h-touch items-center rounded px-2 py-2 text-sm text-body transition hover:text-navy focus:outline-none focus-visible:ring-2 focus-visible:ring-gold"
+              className="inline-flex min-h-touch items-center rounded px-2 py-2 text-sm font-medium text-body transition hover:text-ink focus:outline-none focus-visible:ring-2 focus-visible:ring-copper xl:px-3"
             >
               {link.label}
             </Link>
@@ -105,20 +115,11 @@ export function Header() {
             items={practiceAreaDropdownItems}
             align="right"
           />
-          {simpleNavLinks.slice(2).map((link) => (
-            <Link
-              key={link.href}
-              href={link.href}
-              className="inline-flex min-h-touch items-center rounded px-2 py-2 text-sm text-body transition hover:text-navy focus:outline-none focus-visible:ring-2 focus-visible:ring-gold"
-            >
-              {link.label}
-            </Link>
-          ))}
           <Link
             href="/contact"
-            className="ml-1 inline-flex min-h-touch shrink-0 items-center rounded-card border-2 border-gold bg-navy px-3 py-2 text-sm font-semibold text-white transition hover:bg-charcoal focus:outline-none focus-visible:ring-2 focus-visible:ring-gold xl:ml-2 xl:px-4"
+            className="ml-2 inline-flex min-h-touch shrink-0 items-center rounded-card bg-copper px-4 py-2.5 text-sm font-semibold text-white transition hover:bg-ink focus:outline-none focus-visible:ring-2 focus-visible:ring-copper focus-visible:ring-offset-2 xl:ml-3 xl:px-5"
           >
-            Contact Us
+            Request Consultation
           </Link>
         </nav>
 
@@ -131,13 +132,13 @@ export function Header() {
           onClick={() => setOpen(!open)}
         >
           <span
-            className={`block h-0.5 w-6 bg-navy transition ${open ? "translate-y-2 rotate-45" : ""}`}
+            className={`block h-0.5 w-6 bg-ink transition ${open ? "translate-y-2 rotate-45" : ""}`}
           />
           <span
-            className={`block h-0.5 w-6 bg-navy transition ${open ? "opacity-0" : ""}`}
+            className={`block h-0.5 w-6 bg-ink transition ${open ? "opacity-0" : ""}`}
           />
           <span
-            className={`block h-0.5 w-6 bg-navy transition ${open ? "-translate-y-2 -rotate-45" : ""}`}
+            className={`block h-0.5 w-6 bg-ink transition ${open ? "-translate-y-2 -rotate-45" : ""}`}
           />
         </button>
       </div>
@@ -145,20 +146,20 @@ export function Header() {
       {open && (
         <nav
           id="mobile-menu"
-          className="max-h-[calc(100dvh-3.5rem)] overflow-y-auto overscroll-contain border-t border-border bg-white nav:hidden"
+          className="max-h-[calc(100dvh-4.5rem)] overflow-y-auto overscroll-contain border-t border-border bg-white nav:hidden"
           aria-label="Mobile navigation"
         >
           <div className="container-page space-y-6 py-6 pb-safe">
             <Link
               href="/"
-              className="flex min-h-touch items-center font-medium text-navy"
+              className="flex min-h-touch items-center font-medium text-ink"
               onClick={() => setOpen(false)}
             >
               Home
             </Link>
             {mobileGroups.map((group) => (
               <div key={group.label}>
-                <p className="mb-2 text-xs font-semibold uppercase tracking-wide text-charcoal">
+                <p className="mb-2 text-xs font-semibold uppercase tracking-[0.12em] text-sage">
                   {group.label}
                 </p>
                 <ul className="space-y-1">
@@ -166,7 +167,7 @@ export function Header() {
                     <li key={link.href}>
                       <Link
                         href={link.href}
-                        className="flex min-h-touch items-center break-words text-body hover:text-navy"
+                        className="flex min-h-touch items-center break-words text-body hover:text-ink"
                         onClick={() => setOpen(false)}
                       >
                         {link.label}
@@ -178,10 +179,10 @@ export function Header() {
             ))}
             <Link
               href="/contact"
-              className="flex min-h-touch w-full items-center justify-center rounded-card border-2 border-gold bg-navy text-sm font-semibold text-white"
+              className="flex min-h-touch w-full items-center justify-center rounded-card bg-copper text-sm font-semibold text-white"
               onClick={() => setOpen(false)}
             >
-              Contact Us
+              Request Consultation
             </Link>
           </div>
         </nav>

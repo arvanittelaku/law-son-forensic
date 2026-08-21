@@ -19,7 +19,7 @@ export default function CookiesPage() {
       />
       <Section>
         <Prose>
-          <p className="text-sm text-charcoal">Last updated: June 2025</p>
+          <p className="text-sm text-slate-muted">Last updated: June 2025</p>
           <h2>What are cookies?</h2>
           <p>
             Cookies are small text files stored on your device when you visit a website.
@@ -51,7 +51,7 @@ export default function CookiesPage() {
           <h2>Manage your preferences</h2>
           <p>
             You can change your choices at any time using{" "}
-            <CookieSettingsButton className="font-semibold text-gold" /> below or
+            <CookieSettingsButton className="font-semibold text-copper" /> below or
             the link in the site footer. On first visit,
             our banner lets you Accept All, Reject Non-Essential, or Customise Preferences.
           </p>
@@ -68,7 +68,7 @@ export default function CookiesPage() {
           <h2>More information</h2>
           <p>
             See our{" "}
-            <Link href="/privacy" className="text-gold hover:underline">
+            <Link href="/privacy" className="text-copper hover:underline">
               Privacy Policy
             </Link>{" "}
             for how we process personal data.

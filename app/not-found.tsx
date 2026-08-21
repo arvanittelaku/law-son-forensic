@@ -5,9 +5,9 @@ import { services, servicePath } from "@/lib/data/services";
 export default function NotFound() {
   return (
     <>
-      <section className="bg-navy py-12 sm:py-16 md:py-24">
+      <section className="bg-ink py-12 sm:py-16 md:py-24">
         <div className="container-page text-center">
-          <p className="font-serif text-5xl font-semibold text-gold xs:text-6xl md:text-8xl">
+          <p className="font-serif text-5xl font-semibold text-copper xs:text-6xl md:text-8xl">
             404
           </p>
           <h1 className="mt-4 font-serif text-xl font-semibold text-white xs:text-2xl md:text-3xl">
@@ -20,7 +20,7 @@ export default function NotFound() {
             <Button
               href="/"
               variant="primary"
-              className="w-full max-w-sm border-gold bg-gold text-navy hover:bg-white sm:w-auto"
+              className="w-full max-w-sm border-copper bg-copper text-ink hover:bg-white sm:w-auto"
             >
               Return to Homepage
             </Button>
@@ -28,9 +28,9 @@ export default function NotFound() {
         </div>
       </section>
 
-      <section className="border-t border-border bg-section-alt py-10 sm:py-14">
+      <section className="border-t border-border bg-stone-dark py-10 sm:py-14">
         <div className="container-page">
-          <h2 className="text-center font-serif text-lg font-semibold text-navy sm:text-xl">
+          <h2 className="text-center font-serif text-lg font-semibold text-ink sm:text-xl">
             Popular pages
           </h2>
           <nav
@@ -39,25 +39,25 @@ export default function NotFound() {
           >
             <Link
               href="/services"
-              className="inline-flex min-h-touch items-center text-gold hover:underline"
+              className="inline-flex min-h-touch items-center text-copper hover:underline"
             >
               Services
             </Link>
             <Link
               href="/practice-areas"
-              className="inline-flex min-h-touch items-center text-gold hover:underline"
+              className="inline-flex min-h-touch items-center text-copper hover:underline"
             >
               Practice Areas
             </Link>
             <Link
               href="/how-we-work"
-              className="inline-flex min-h-touch items-center text-gold hover:underline"
+              className="inline-flex min-h-touch items-center text-copper hover:underline"
             >
               How We Work
             </Link>
             <Link
               href="/contact"
-              className="inline-flex min-h-touch items-center text-gold hover:underline"
+              className="inline-flex min-h-touch items-center text-copper hover:underline"
             >
               Contact
             </Link>
@@ -67,7 +67,7 @@ export default function NotFound() {
               <li key={s.id}>
                 <Link
                   href={servicePath(s.id)}
-                  className="flex min-h-touch items-center rounded-card border border-border bg-white px-4 py-3 text-sm text-body shadow-card hover:border-gold"
+                  className="flex min-h-touch items-center rounded-card border border-border bg-white px-4 py-3 text-sm text-body shadow-card hover:border-copper"
                 >
                   <span className="break-words">{s.title}</span>
                 </Link>

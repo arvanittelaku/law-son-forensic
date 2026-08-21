@@ -15,7 +15,7 @@ export function getHomepageInternalLinks(): {
       href: servicePath(s.id),
       label: s.title,
     })),
-    practiceAreas: practiceAreas.slice(0, 4).map((p) => ({
+    practiceAreas: practiceAreas.slice(0, 5).map((p) => ({
       href: `/practice-areas/${p.slug}`,
       label: p.title,
     })),
@@ -59,8 +59,8 @@ export function getInsightRelatedLinks(articleSlug: string): InternalLink[] {
       { href: "/practice-areas/commercial-disputes", label: "Commercial disputes" },
     ],
     "business-valuation-divorce-guide": [
-      { href: "/practice-areas/family-proceedings", label: "Family proceedings" },
-      { href: "/services/family-matrimonial", label: "Family & matrimonial accounting" },
+      { href: "/practice-areas/family-proceedings", label: "Marital dissolution" },
+      { href: "/services/family-matrimonial", label: "Family & marital accounting" },
     ],
     "poca-benefit-calculation-guide": [
       { href: "/practice-areas/fraud-financial-crime", label: "Fraud & financial crime" },
@@ -68,6 +68,7 @@ export function getInsightRelatedLinks(articleSlug: string): InternalLink[] {
     ],
     "choosing-single-joint-expert": [
       { href: "/services/expert-witness", label: "Expert witness reports" },
+      { href: "/practice-areas/shareholder-disputes", label: "Shareholder disputes" },
       { href: "/practice-areas/commercial-disputes", label: "Commercial disputes" },
     ],
   };

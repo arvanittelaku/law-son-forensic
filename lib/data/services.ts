@@ -64,9 +64,9 @@ export const services: Service[] = [
         rows: [
           ["Initial enquiry", "Assess scope, check conflicts, confirm availability", "Same day"],
           ["Engagement letter", "Review scope, raise queries if needed", "Within 2 days"],
-          ["Document review", "Analyse financial records and supporting materials", "1 to 4 weeks"],
+          ["Document review", "Analyze financial records and supporting materials", "1 to 4 weeks"],
           ["Draft report", "Prepare expert report for review", "2 to 4 weeks"],
-          ["Finalise", "Incorporate factual corrections, finalise", "1 to 2 weeks"],
+          ["Finalize", "Incorporate factual corrections, finalize", "1 to 2 weeks"],
           ["Deposition & trial", "Testify and respond to discovery as directed", "As scheduled"],
         ],
       },
@@ -74,7 +74,7 @@ export const services: Service[] = [
         type: "prose",
         heading: "Independence & Objectivity",
         paragraphs: [
-          "Our opinions reflect our honest independent view of the financial issues. We advise instructing counsel promptly if our preliminary view may be adverse to the retaining party, because early clarity supports better case strategy.",
+          "Our opinions reflect our honest independent view of the financial issues. We advise retaining counsel promptly if our preliminary view may be adverse to the retaining party, because early clarity supports better case strategy.",
         ],
       },
     ],
@@ -141,7 +141,7 @@ export const services: Service[] = [
       },
       {
         type: "list",
-        heading: "Typical instructions",
+        heading: "Typical retentions",
         items: [
           "Tracing corporate funds diverted to related accounts",
           "Identifying assets acquired with misappropriated funds",

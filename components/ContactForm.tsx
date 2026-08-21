@@ -74,14 +74,14 @@ export function ContactForm() {
   }
 
   const inputClass =
-    "w-full rounded-card border border-border px-4 py-3 text-body focus:border-gold focus:outline-none focus:ring-2 focus:ring-gold/30 min-h-touch";
+    "w-full rounded-card border border-border px-4 py-3 text-body focus:border-copper focus:outline-none focus:ring-2 focus:ring-copper/30 min-h-touch";
 
   return (
     <form onSubmit={handleSubmit} className="space-y-5">
       <div className="grid gap-5 md:grid-cols-2">
         <div>
-          <label htmlFor="name" className="mb-1 block text-sm font-medium text-navy">
-            Full Name <span className="text-gold">*</span>
+          <label htmlFor="name" className="mb-1 block text-sm font-medium text-ink">
+            Full Name <span className="text-copper">*</span>
           </label>
           <input
             id="name"
@@ -93,8 +93,8 @@ export function ContactForm() {
           />
         </div>
         <div>
-          <label htmlFor="organisation" className="mb-1 block text-sm font-medium text-navy">
-            Law Firm / Organisation <span className="text-gold">*</span>
+          <label htmlFor="organisation" className="mb-1 block text-sm font-medium text-ink">
+            Law Firm / Organisation <span className="text-copper">*</span>
           </label>
           <input
             id="organisation"
@@ -108,8 +108,8 @@ export function ContactForm() {
 
       <div className="grid gap-5 md:grid-cols-2">
         <div>
-          <label htmlFor="email" className="mb-1 block text-sm font-medium text-navy">
-            Email <span className="text-gold">*</span>
+          <label htmlFor="email" className="mb-1 block text-sm font-medium text-ink">
+            Email <span className="text-copper">*</span>
           </label>
           <input
             id="email"
@@ -121,7 +121,7 @@ export function ContactForm() {
           />
         </div>
         <div>
-          <label htmlFor="phone" className="mb-1 block text-sm font-medium text-navy">
+          <label htmlFor="phone" className="mb-1 block text-sm font-medium text-ink">
             Phone
           </label>
           <input
@@ -136,7 +136,7 @@ export function ContactForm() {
 
       <div className="grid gap-5 md:grid-cols-2">
         <div>
-          <label htmlFor="instruction_type" className="mb-1 block text-sm font-medium text-navy">
+          <label htmlFor="instruction_type" className="mb-1 block text-sm font-medium text-ink">
             Nature of Instruction
           </label>
           <select id="instruction_type" name="instruction_type" className={inputClass}>
@@ -148,7 +148,7 @@ export function ContactForm() {
           </select>
         </div>
         <div>
-          <label htmlFor="practice_area" className="mb-1 block text-sm font-medium text-navy">
+          <label htmlFor="practice_area" className="mb-1 block text-sm font-medium text-ink">
             Practice Area
           </label>
           <select id="practice_area" name="practice_area" className={inputClass}>
@@ -162,15 +162,15 @@ export function ContactForm() {
       </div>
 
       <div>
-        <label htmlFor="deadline" className="mb-1 block text-sm font-medium text-navy">
+        <label htmlFor="deadline" className="mb-1 block text-sm font-medium text-ink">
           Hearing / deadline date
         </label>
         <input id="deadline" name="deadline" type="date" className={inputClass} />
       </div>
 
       <div>
-        <label htmlFor="message" className="mb-1 block text-sm font-medium text-navy">
-          Brief description of the matter <span className="text-gold">*</span>
+        <label htmlFor="message" className="mb-1 block text-sm font-medium text-ink">
+          Brief description of the matter <span className="text-copper">*</span>
         </label>
         <textarea
           id="message"
@@ -182,7 +182,7 @@ export function ContactForm() {
       </div>
 
       <div>
-        <label htmlFor="referral" className="mb-1 block text-sm font-medium text-navy">
+        <label htmlFor="referral" className="mb-1 block text-sm font-medium text-ink">
           How did you hear about Lawson Forensic?
         </label>
         <select id="referral" name="referral" className={inputClass}>
@@ -197,7 +197,7 @@ export function ContactForm() {
       {status === "error" && (
         <p className="text-sm text-red-700" role="alert">
           Unable to send your enquiry. Please email{" "}
-          <a href={`mailto:${SITE_EMAIL}`} className="break-all text-gold underline">
+          <a href={`mailto:${SITE_EMAIL}`} className="break-all text-copper underline">
             {SITE_EMAIL}
           </a>{" "}
           directly.
@@ -207,7 +207,7 @@ export function ContactForm() {
       <button
         type="submit"
         disabled={status === "submitting"}
-        className="min-h-touch w-full rounded-card border-2 border-gold bg-navy px-6 py-3 text-sm font-semibold text-white transition hover:bg-charcoal focus:outline-none focus-visible:ring-2 focus-visible:ring-gold disabled:opacity-60 md:w-auto"
+        className="min-h-touch w-full rounded-card border-2 border-copper bg-ink px-6 py-3 text-sm font-semibold text-white transition hover:bg-slate-muted focus:outline-none focus-visible:ring-2 focus-visible:ring-copper disabled:opacity-60 md:w-auto"
       >
         {status === "submitting" ? "Sending..." : "Send Enquiry"}
       </button>

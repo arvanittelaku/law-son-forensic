@@ -63,16 +63,16 @@ export default function HowWeWorkPage() {
       />
 
       <Section>
-        <h2 className="font-serif text-2xl font-semibold text-navy md:text-3xl">
+        <h2 className="font-serif text-2xl font-semibold text-ink md:text-3xl">
           Our Approach to Every Engagement
         </h2>
         <div className="mt-8 grid gap-6 md:grid-cols-2">
           {principles.map((p) => (
             <article
               key={p.title}
-              className="rounded-card border border-border border-t-4 border-t-gold bg-white p-6 shadow-card"
+              className="rounded-card border border-border border-t-4 border-t-copper bg-white p-6 shadow-card"
             >
-              <h3 className="font-serif text-lg font-semibold text-navy">
+              <h3 className="font-serif text-lg font-semibold text-ink">
                 {p.title}
               </h3>
               <p className="mt-3 text-body leading-relaxed">{p.text}</p>
@@ -82,7 +82,7 @@ export default function HowWeWorkPage() {
       </Section>
 
       <Section alt>
-        <h2 className="font-serif text-2xl font-semibold text-navy md:text-3xl">
+        <h2 className="font-serif text-2xl font-semibold text-ink md:text-3xl">
           From Instruction to Report
         </h2>
         <ol className="mt-8 space-y-4">
@@ -91,11 +91,11 @@ export default function HowWeWorkPage() {
               key={s.step}
               className="flex gap-4 rounded-card border border-border bg-white p-6 shadow-card"
             >
-              <span className="flex h-10 w-10 shrink-0 items-center justify-center rounded-card border-2 border-gold font-serif text-lg font-semibold text-navy">
+              <span className="flex h-10 w-10 shrink-0 items-center justify-center rounded-card border-2 border-copper font-serif text-lg font-semibold text-ink">
                 {s.step}
               </span>
               <div>
-                <h3 className="font-serif text-lg font-semibold text-navy">
+                <h3 className="font-serif text-lg font-semibold text-ink">
                   {s.title}
                 </h3>
                 <p className="mt-2 text-body leading-relaxed">{s.text}</p>

@@ -69,7 +69,7 @@ export default function AboutPage() {
             <li>ABV / CVA (Business Valuation credentials)</li>
           </ul>
           <p>
-            <Link href="/qualifications-accreditations" className="text-gold hover:underline">
+            <Link href="/qualifications-accreditations" className="text-copper hover:underline">
               View full qualifications and accreditations
             </Link>
           </p>
