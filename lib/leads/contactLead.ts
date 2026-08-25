@@ -41,25 +41,3 @@ export async function appendContactLeadToSheet(
     BRAND_NAME,
   ]);
 }
-
-export async function notifyLeadWebhook(
-  payload: ContactLeadPayload
-): Promise<boolean> {
-  const webhookUrl =
-    process.env.Lead_notification_url || process.env.LEAD_NOTIFICATION_URL;
-
-  if (!webhookUrl) return false;
-
-  const res = await fetch(webhookUrl, {
-    method: "POST",
-    headers: { "Content-Type": "application/json" },
-    body: JSON.stringify({
-      "Full Name": payload.fullName,
-      Email: payload.email,
-      "Phone Number": payload.phone || "",
-      "Brand name": BRAND_NAME,
-    }),
-  });
-
-  return res.ok;
-}

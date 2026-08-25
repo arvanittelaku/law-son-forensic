@@ -10,6 +10,7 @@ type NavDropdownProps = {
   href: string;
   items: NavDropdownItem[];
   align?: "left" | "right";
+  variant?: "light" | "dark";
 };
 
 export function NavDropdown({
@@ -17,9 +18,11 @@ export function NavDropdown({
   href,
   items,
   align = "left",
+  variant = "light",
 }: NavDropdownProps) {
   const [open, setOpen] = useState(false);
   const ref = useRef<HTMLDivElement>(null);
+  const isDark = variant === "dark";
 
   useEffect(() => {
     function handleClick(e: MouseEvent) {
@@ -41,6 +44,10 @@ export function NavDropdown({
   const menuPosition =
     align === "right" ? "right-0 left-auto" : "left-0 right-auto";
 
+  const triggerClass = isDark
+    ? "inline-flex min-h-touch max-w-[11rem] items-center gap-1 rounded px-2 py-2 text-sm font-medium text-white/80 transition hover:text-white focus:outline-none focus-visible:ring-2 focus-visible:ring-copper xl:max-w-none xl:px-3"
+    : "inline-flex min-h-touch max-w-[11rem] items-center gap-1 rounded px-2 py-2 text-sm font-medium text-body transition hover:text-ink focus:outline-none focus-visible:ring-2 focus-visible:ring-copper xl:max-w-none xl:px-3";
+
   return (
     <div
       ref={ref}
@@ -50,19 +57,22 @@ export function NavDropdown({
     >
       <button
         type="button"
-        className="inline-flex min-h-touch max-w-[11rem] items-center gap-1 rounded px-2 py-2 text-sm font-medium text-body transition hover:text-ink focus:outline-none focus-visible:ring-2 focus-visible:ring-copper xl:max-w-none xl:px-3"
+        className={triggerClass}
         aria-expanded={open}
         aria-haspopup="true"
         onClick={() => setOpen(!open)}
       >
         <Link
           href={href}
-          className="truncate hover:text-ink"
+          className={`truncate ${isDark ? "hover:text-white" : "hover:text-ink"}`}
           onClick={(e) => e.stopPropagation()}
         >
           {label}
         </Link>
-        <span className="shrink-0 text-xs text-sage" aria-hidden="true">
+        <span
+          className={`shrink-0 text-xs ${isDark ? "text-copper/80" : "text-sage"}`}
+          aria-hidden="true"
+        >
           ▾
         </span>
       </button>

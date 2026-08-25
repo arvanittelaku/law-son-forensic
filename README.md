@@ -5,7 +5,7 @@ Production website for [lawsonforensic.com](https://www.lawsonforensic.com): U.S
 ## Stack
 
 - Next.js 15 (App Router), TypeScript, Tailwind CSS
-- Static site; Formspree contact form
+- Static site; contact form → n8n webhook via `/api/submit-lead`
 - GDPR cookie consent with Google Consent Mode
 
 ## Setup
@@ -15,7 +15,9 @@ npm install
 cp .env.example .env.local
 ```
 
-Set `Lead_notification_url` for contact form webhooks and optionally `NEXT_PUBLIC_GA_MEASUREMENT_ID`.
+Set `Lead_notification_url` for the n8n contact webhook and optionally `NEXT_PUBLIC_GA_MEASUREMENT_ID`.
+
+For local webhook testing, use **`netlify dev`** (often `http://localhost:8888`) so `/api/submit-lead` routes to the Netlify function.
 
 ## Development
 
@@ -35,7 +37,7 @@ npm start
 | Variable | Description |
 |----------|-------------|
 | `NEXT_PUBLIC_SITE_URL` | Canonical URL (default: https://www.lawsonforensic.com) |
-| `Lead_notification_url` | n8n/webhook URL for contact leads |
+| `Lead_notification_url` | n8n webhook URL; outbound JSON includes `domain` + `Brand name` |
 | `NEXT_PUBLIC_GA_MEASUREMENT_ID` | Google Analytics 4 (loaded only after consent) |
 | `GOOGLE_SITE_VERIFICATION` | Search Console |
 | `BING_SITE_VERIFICATION` | Bing Webmaster |
@@ -44,12 +46,10 @@ Domain canonicalization (apex ↔ www) is handled by Netlify's Primary domain se
 
 SEO files: `npm run seo:generate` writes `public/sitemap.xml` and `public/robots.txt`. See `docs/SEO.md` and `docs/SEO-ARCHITECTURE.md`.
 
-## Google Sheets (contact form)
+## Contact form webhook
 
-1. Share the spreadsheet with `GOOGLE_SERVICE_ACCOUNT_EMAIL` as **Editor**.
-2. Set row 1 headers on tab `GOOGLE_SHEET_TAB_NAME`:
+On submit, the contact form **POST**s to **`/api/submit-lead`**, which forwards to **`Lead_notification_url`** with:
 
-   `Timestamp | Full Name | Organisation | Email | Phone | Instruction Type | Practice Area | Deadline | Message | Referral Source | Brand`
+`Full Name`, `Email`, `Phone Number`, `Brand name` (`Lawson Forensic`), and `domain` (from `NEXT_PUBLIC_SITE_URL`, www stripped).
 
-3. Copy `.env.example` to `.env.local` and set `GOOGLE_*` variables.
-4. Test: `npm run test:sheets`
+See **`Lead_notification_setup.md`** for the full cross-project spec.

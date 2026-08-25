@@ -1,23 +1,34 @@
 /**
  * POST lead notification to Lead_notification_url (n8n or other webhook).
- * Inbound body: { fullName, email, phone }
- * Outbound JSON keys: Full Name, Email, Phone Number, Brand name
+ * Inbound: { fullName, email, phone?, formType? }
+ * Outbound JSON keys: Full Name, Email, Phone Number, Brand name, domain
  */
 const BRAND_NAME = "Lawson Forensic";
 
-exports.handler = async (event) => {
-  if (event.httpMethod !== "POST") {
-    return { statusCode: 405, body: JSON.stringify({ error: "Method not allowed" }) };
+function getLeadWebhookUrl() {
+  return (
+    process.env.Lead_notification_url ||
+    process.env.LEAD_NOTIFICATION_URL ||
+    ""
+  );
+}
+
+function getSiteDomain() {
+  const siteUrl =
+    process.env.NEXT_PUBLIC_SITE_URL || "https://www.lawsonforensic.com";
+  try {
+    const hostname = new URL(siteUrl).hostname;
+    return hostname.replace(/^www\./, "");
+  } catch {
+    return "lawsonforensic.com";
   }
+}
 
-  const webhookUrl =
-    process.env.Lead_notification_url || process.env.LEAD_NOTIFICATION_URL;
-
-  if (!webhookUrl) {
-    console.error("Lead_notification_url is not configured");
+exports.handler = async function handler(event) {
+  if (event.httpMethod !== "POST") {
     return {
-      statusCode: 500,
-      body: JSON.stringify({ error: "Lead notification is not configured" }),
+      statusCode: 405,
+      body: JSON.stringify({ message: "Method not allowed" }),
     };
   }
 
@@ -25,52 +36,73 @@ exports.handler = async (event) => {
   try {
     body = JSON.parse(event.body || "{}");
   } catch {
-    return { statusCode: 400, body: JSON.stringify({ error: "Invalid JSON" }) };
+    return {
+      statusCode: 400,
+      body: JSON.stringify({ message: "Invalid JSON body" }),
+    };
   }
 
-  const fullName = String(body.fullName || "").trim();
-  const email = String(body.email || "").trim();
-  const phone = String(body.phone || "").trim();
+  const fullName = typeof body.fullName === "string" ? body.fullName.trim() : "";
+  const email = typeof body.email === "string" ? body.email.trim() : "";
+  const phone = typeof body.phone === "string" ? body.phone.trim() : "";
 
   if (!fullName || !email) {
     return {
       statusCode: 400,
-      body: JSON.stringify({ error: "fullName and email are required" }),
+      body: JSON.stringify({ message: "fullName and email are required" }),
     };
   }
 
-  const payload = {
+  const webhookUrl = getLeadWebhookUrl();
+  if (!webhookUrl) {
+    console.warn(
+      "Lead_notification_url not configured — lead logged but not forwarded."
+    );
+    console.log("Lead submission:", {
+      fullName,
+      email,
+      phone,
+      brand: BRAND_NAME,
+      domain: getSiteDomain(),
+    });
+    return {
+      statusCode: 200,
+      body: JSON.stringify({ success: true, forwarded: false }),
+    };
+  }
+
+  const outbound = {
     "Full Name": fullName,
     Email: email,
     "Phone Number": phone,
     "Brand name": BRAND_NAME,
+    domain: getSiteDomain(),
   };
 
   try {
-    const res = await fetch(webhookUrl, {
+    const response = await fetch(webhookUrl, {
       method: "POST",
       headers: { "Content-Type": "application/json" },
-      body: JSON.stringify(payload),
+      body: JSON.stringify(outbound),
     });
 
-    if (!res.ok) {
-      const text = await res.text();
-      console.error("Webhook failed", res.status, text);
+    if (!response.ok) {
+      console.error("Webhook POST failed:", response.status, await response.text());
       return {
         statusCode: 502,
-        body: JSON.stringify({ error: "Failed to deliver lead" }),
+        body: JSON.stringify({ message: "Lead notification dispatch failed" }),
       };
     }
 
     return {
       statusCode: 200,
-      body: JSON.stringify({ ok: true }),
+      body: JSON.stringify({ success: true, forwarded: true }),
     };
-  } catch (err) {
-    console.error("Webhook error", err);
+  } catch (error) {
+    console.error("Webhook POST error:", error);
     return {
       statusCode: 502,
-      body: JSON.stringify({ error: "Failed to deliver lead" }),
+      body: JSON.stringify({ message: "Lead notification dispatch failed" }),
     };
   }
 };

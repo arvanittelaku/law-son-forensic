@@ -1,65 +1,81 @@
 import { NextResponse } from "next/server";
-import {
-  appendContactLeadToSheet,
-  notifyLeadWebhook,
-  type ContactLeadPayload,
-} from "@/lib/leads/contactLead";
-import { isGoogleSheetsConfigured } from "@/lib/google-sheets";
+import { notifyLeadWebhook } from "@/lib/leadNotification";
+
+function sanitize(str: string, maxLen: number): string {
+  return str.replace(/<[^>]*>/g, "").trim().slice(0, maxLen);
+}
 
 export async function POST(request: Request) {
-  let body: ContactLeadPayload;
   try {
-    body = await request.json();
-  } catch {
-    return NextResponse.json({ error: "Invalid JSON" }, { status: 400 });
-  }
+    const body = (await request.json()) as {
+      fullName?: string;
+      email?: string;
+      phone?: string;
+      formType?: string;
+      organisation?: string;
+      instructionType?: string;
+      practiceArea?: string;
+      deadline?: string;
+      message?: string;
+      referral?: string;
+    };
 
-  const fullName = String(body.fullName || "").trim();
-  const email = String(body.email || "").trim();
+    const fullName = sanitize(body.fullName ?? "", 200);
+    const email = sanitize(body.email ?? "", 320).toLowerCase();
+    const phone = sanitize(body.phone ?? "", 50);
 
-  if (!fullName || !email) {
+    if (!fullName || !email) {
+      return NextResponse.json(
+        { success: false, error: "fullName and email are required" },
+        { status: 400 }
+      );
+    }
+
+    if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email)) {
+      return NextResponse.json(
+        { success: false, error: "Invalid email address" },
+        { status: 400 }
+      );
+    }
+
+    const message = sanitize(body.message ?? "", 4000);
+    if (body.formType === "contact" && !message) {
+      return NextResponse.json(
+        { success: false, error: "message is required" },
+        { status: 400 }
+      );
+    }
+
+    const result = await notifyLeadWebhook({ fullName, email, phone });
+
+    if (message || body.organisation || body.instructionType) {
+      console.log("Contact enquiry details:", {
+        fullName,
+        email,
+        phone,
+        formType: body.formType ?? "contact",
+        organisation: sanitize(body.organisation ?? "", 200),
+        instructionType: sanitize(body.instructionType ?? "", 100),
+        practiceArea: sanitize(body.practiceArea ?? "", 100),
+        deadline: sanitize(body.deadline ?? "", 50),
+        message,
+        referral: sanitize(body.referral ?? "", 100),
+      });
+    }
+
+    if (!result.ok) {
+      return NextResponse.json(
+        { success: false, error: "Lead notification dispatch failed" },
+        { status: 502 }
+      );
+    }
+
+    return NextResponse.json({ success: true, forwarded: result.forwarded });
+  } catch (error) {
+    console.error("submit-lead error:", error);
     return NextResponse.json(
-      { error: "fullName and email are required" },
-      { status: 400 }
-    );
-  }
-
-  const payload: ContactLeadPayload = {
-    fullName,
-    email,
-    phone: String(body.phone || "").trim(),
-    organisation: String(body.organisation || "").trim(),
-    instructionType: String(body.instructionType || "").trim(),
-    practiceArea: String(body.practiceArea || "").trim(),
-    deadline: String(body.deadline || "").trim(),
-    message: String(body.message || "").trim(),
-    referral: String(body.referral || "").trim(),
-  };
-
-  if (!isGoogleSheetsConfigured()) {
-    return NextResponse.json(
-      { error: "Google Sheets is not configured" },
+      { success: false, error: "Server error" },
       { status: 500 }
     );
   }
-
-  try {
-    await appendContactLeadToSheet(payload);
-  } catch (error) {
-    console.error("Google Sheets write failed:", {
-      message: error instanceof Error ? error.message : "Unknown error",
-    });
-    return NextResponse.json(
-      { error: "Failed to save your enquiry" },
-      { status: 500 }
-    );
-  }
-
-  try {
-    await notifyLeadWebhook(payload);
-  } catch (error) {
-    console.error("Lead webhook failed (non-blocking):", error);
-  }
-
-  return NextResponse.json({ ok: true });
 }

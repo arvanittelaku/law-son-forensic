@@ -48,6 +48,7 @@ export function ContactForm() {
       fullName: String(fd.get("name") || "").trim(),
       email: String(fd.get("email") || "").trim(),
       phone: String(fd.get("phone") || "").trim(),
+      formType: "contact" as const,
       organisation: String(fd.get("organisation") || "").trim(),
       instructionType: String(fd.get("instruction_type") || "").trim(),
       practiceArea: String(fd.get("practice_area") || "").trim(),
@@ -63,7 +64,9 @@ export function ContactForm() {
         body: JSON.stringify(payload),
       });
 
-      if (res.ok) {
+      const result = (await res.json()) as { success?: boolean; error?: string };
+
+      if (res.ok && result.success) {
         router.push("/thank-you");
       } else {
         setStatus("error");
