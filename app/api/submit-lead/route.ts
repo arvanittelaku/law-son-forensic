@@ -70,17 +70,21 @@ export async function POST(request: Request) {
 
     let webhookOk = false;
     if (webhookUrl) {
-      const result = await notifyLeadWebhook({ fullName, email, phone });
-      webhookOk = result.ok;
-      if (!webhookOk) {
-        return NextResponse.json(
-          { success: false, error: "Lead notification dispatch failed" },
-          { status: 502 }
-        );
+      try {
+        const result = await notifyLeadWebhook({ fullName, email, phone });
+        webhookOk = result.ok;
+        if (!webhookOk) {
+          console.error("[submit-lead] webhook failed — continuing with Sheets");
+        }
+      } catch (error) {
+        console.error("[submit-lead] webhook error:", error);
       }
+    } else {
+      console.warn(
+        "[submit-lead] Lead_notification_url missing — continuing with Sheets fallback"
+      );
     }
 
-    // Soft-fail Sheets — never block a successful webhook.
     const sheetsOk = await writeContactLeadToSheetSafely({
       fullName,
       email,

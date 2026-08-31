@@ -66,6 +66,7 @@ export async function writeContactLeadToSheetSafely(
   payload: ContactLeadPayload
 ): Promise<boolean> {
   if (!isGoogleSheetsConfigured()) {
+    console.warn("[sheets] not configured — skip contact lead");
     return false;
   }
 
@@ -78,6 +79,7 @@ export async function writeContactLeadToSheetSafely(
       spreadsheetId: process.env.GOOGLE_SHEET_ID
         ? `${process.env.GOOGLE_SHEET_ID.slice(0, 8)}...`
         : "missing",
+      tab: (process.env.GOOGLE_SHEET_TAB_NAME || "Sheet1").trim(),
       timestamp: new Date().toISOString(),
     });
     return false;

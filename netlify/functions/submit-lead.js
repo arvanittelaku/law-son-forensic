@@ -1,8 +1,10 @@
 /**
- * POST lead notification to Lead_notification_url (n8n or other webhook).
- * Inbound: { fullName, email, phone?, formType? }
- * Outbound JSON keys: Full Name, Email, Phone Number, Brand name, domain
+ * Netlify backup for /api/submit-lead — soft webhook + soft Sheets.
+ * Kept if an old redirect is still active on a deploy.
  */
+
+const { google } = require("googleapis");
+
 const BRAND_NAME = "Lawson Forensic";
 
 function getLeadWebhookUrl() {
@@ -22,6 +24,82 @@ function getSiteDomain() {
   } catch {
     return "lawsonforensic.com";
   }
+}
+
+function normalizePrivateKey(raw) {
+  if (!raw) return undefined;
+  let key = String(raw).trim();
+  if (
+    (key.startsWith('"') && key.endsWith('"')) ||
+    (key.startsWith("'") && key.endsWith("'"))
+  ) {
+    key = key.slice(1, -1);
+  }
+  return key.replace(/\\n/g, "\n");
+}
+
+function isGoogleSheetsConfigured() {
+  return Boolean(
+    process.env.GOOGLE_SERVICE_ACCOUNT_EMAIL &&
+      process.env.GOOGLE_PRIVATE_KEY &&
+      process.env.GOOGLE_SHEET_ID
+  );
+}
+
+function sanitize(str) {
+  return String(str || "")
+    .replace(/<[^>]*>/g, "")
+    .trim();
+}
+
+async function appendLeadToSheet(payload) {
+  if (!isGoogleSheetsConfigured()) {
+    console.warn("[submit-lead fn] Sheets not configured — skip");
+    return false;
+  }
+
+  const auth = new google.auth.GoogleAuth({
+    credentials: {
+      client_email: process.env.GOOGLE_SERVICE_ACCOUNT_EMAIL,
+      private_key: normalizePrivateKey(process.env.GOOGLE_PRIVATE_KEY),
+    },
+    scopes: ["https://www.googleapis.com/auth/spreadsheets"],
+  });
+
+  const sheets = google.sheets({ version: "v4", auth });
+  const spreadsheetId = process.env.GOOGLE_SHEET_ID;
+  const sheetName = (process.env.GOOGLE_SHEET_TAB_NAME || "Sheet1").trim();
+  const formType =
+    String(payload.formType || "contact").toLowerCase() === "instruct"
+      ? "Instruct"
+      : "Contact";
+
+  await sheets.spreadsheets.values.append({
+    spreadsheetId,
+    range: `${sheetName}!A:L`,
+    valueInputOption: "USER_ENTERED",
+    insertDataOption: "INSERT_ROWS",
+    requestBody: {
+      values: [
+        [
+          new Date().toISOString(),
+          BRAND_NAME,
+          sanitize(payload.fullName),
+          String(payload.email || "").toLowerCase().trim(),
+          sanitize(payload.phone),
+          formType,
+          sanitize(payload.message),
+          sanitize(payload.organisation),
+          sanitize(payload.instructionType),
+          sanitize(payload.practiceArea),
+          sanitize(payload.deadline),
+          sanitize(payload.referral),
+        ],
+      ],
+    },
+  });
+
+  return true;
 }
 
 exports.handler = async function handler(event) {
@@ -53,56 +131,64 @@ exports.handler = async function handler(event) {
     };
   }
 
+  let forwarded = false;
   const webhookUrl = getLeadWebhookUrl();
-  if (!webhookUrl) {
+
+  if (webhookUrl) {
+    try {
+      const outbound = {
+        "Full Name": fullName,
+        Email: email,
+        "Phone Number": phone,
+        "Brand name": BRAND_NAME,
+        domain: getSiteDomain(),
+      };
+      const response = await fetch(webhookUrl, {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify(outbound),
+      });
+      if (!response.ok) {
+        console.error(
+          "Webhook POST failed:",
+          response.status,
+          await response.text()
+        );
+      } else {
+        forwarded = true;
+      }
+    } catch (error) {
+      console.error("Webhook POST error:", error);
+    }
+  } else {
     console.warn(
-      "Lead_notification_url not configured — lead logged but not forwarded."
+      "Lead_notification_url not configured — continuing with Sheets fallback"
     );
-    console.log("Lead submission:", {
-      fullName,
-      email,
-      phone,
-      brand: BRAND_NAME,
-      domain: getSiteDomain(),
-    });
-    return {
-      statusCode: 200,
-      body: JSON.stringify({ success: true, forwarded: false }),
-    };
   }
 
-  const outbound = {
-    "Full Name": fullName,
-    Email: email,
-    "Phone Number": phone,
-    "Brand name": BRAND_NAME,
-    domain: getSiteDomain(),
-  };
-
+  let writtenToSheet = false;
   try {
-    const response = await fetch(webhookUrl, {
-      method: "POST",
-      headers: { "Content-Type": "application/json" },
-      body: JSON.stringify(outbound),
+    writtenToSheet = await appendLeadToSheet(body);
+  } catch (err) {
+    console.error("Google Sheets error (submit-lead fn):", {
+      message: err && err.message,
+      tab: (process.env.GOOGLE_SHEET_TAB_NAME || "Sheet1").trim(),
     });
+  }
 
-    if (!response.ok) {
-      console.error("Webhook POST failed:", response.status, await response.text());
-      return {
-        statusCode: 502,
-        body: JSON.stringify({ message: "Lead notification dispatch failed" }),
-      };
-    }
-
-    return {
-      statusCode: 200,
-      body: JSON.stringify({ success: true, forwarded: true }),
-    };
-  } catch (error) {
-    console.error("Webhook POST error:", error);
+  if (!forwarded && !writtenToSheet) {
     return {
       statusCode: 502,
-      body: JSON.stringify({ message: "Lead notification dispatch failed" }),
+      body: JSON.stringify({ message: "Failed to save your enquiry" }),
     };
   }
+
+  return {
+    statusCode: 200,
+    body: JSON.stringify({
+      success: true,
+      forwarded,
+      writtenToSheet,
+    }),
+  };
 };
