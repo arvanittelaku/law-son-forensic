@@ -6,6 +6,36 @@
 const { google } = require("googleapis");
 
 const BRAND_NAME = "Lawson Forensic";
+const DEFAULT_SHEET_TAB_NAME = BRAND_NAME;
+
+function trimEnvQuotes(value) {
+  if (value == null) return undefined;
+  let v = String(value).trim();
+  if ((v.startsWith('"') && v.endsWith('"')) || (v.startsWith("'") && v.endsWith("'"))) {
+    v = v.slice(1, -1).trim();
+  }
+  return v || undefined;
+}
+
+function normalizeSpreadsheetId(raw) {
+  const trimmed = trimEnvQuotes(raw);
+  if (!trimmed) return undefined;
+  const fromUrl = trimmed.match(/\/spreadsheets\/d\/([a-zA-Z0-9-_]+)/);
+  if (fromUrl && fromUrl[1]) return fromUrl[1];
+  return trimmed;
+}
+
+function resolveSheetTabName(override) {
+  const raw = trimEnvQuotes(override || process.env.GOOGLE_SHEET_TAB_NAME) || DEFAULT_SHEET_TAB_NAME;
+  return raw.replace(/\s+/g, " ").trim();
+}
+
+function appendRangeForTab(sheetName, columns) {
+  const name = sheetName || DEFAULT_SHEET_TAB_NAME;
+  const cols = columns || "A:A";
+  if (/^[A-Za-z0-9_]+$/.test(name)) return `${name}!${cols}`;
+  return `'${name.replace(/'/g, "''")}'!${cols}`;
+}
 
 function getLeadWebhookUrl() {
   return (
@@ -27,22 +57,29 @@ function getSiteDomain() {
 }
 
 function normalizePrivateKey(raw) {
-  if (!raw) return undefined;
-  let key = String(raw).trim();
-  if (
-    (key.startsWith('"') && key.endsWith('"')) ||
-    (key.startsWith("'") && key.endsWith("'"))
-  ) {
-    key = key.slice(1, -1);
+  const trimmed = trimEnvQuotes(raw);
+  if (!trimmed) return undefined;
+
+  let key = trimmed;
+  for (let i = 0; i < 3 && key.includes("\\n"); i += 1) {
+    key = key.replace(/\\n/g, "\n");
   }
-  return key.replace(/\\n/g, "\n");
+  key = key.trim();
+
+  if (key.includes("BEGIN PRIVATE KEY") && !key.includes("\n")) {
+    key = key
+      .replace("-----BEGIN PRIVATE KEY-----", "-----BEGIN PRIVATE KEY-----\n")
+      .replace("-----END PRIVATE KEY-----", "\n-----END PRIVATE KEY-----");
+  }
+
+  return key.includes("BEGIN PRIVATE KEY") ? key : undefined;
 }
 
 function isGoogleSheetsConfigured() {
   return Boolean(
-    process.env.GOOGLE_SERVICE_ACCOUNT_EMAIL &&
-      process.env.GOOGLE_PRIVATE_KEY &&
-      process.env.GOOGLE_SHEET_ID
+    trimEnvQuotes(process.env.GOOGLE_SERVICE_ACCOUNT_EMAIL) &&
+      normalizePrivateKey(process.env.GOOGLE_PRIVATE_KEY) &&
+      normalizeSpreadsheetId(process.env.GOOGLE_SHEET_ID)
   );
 }
 
@@ -60,15 +97,15 @@ async function appendLeadToSheet(payload) {
 
   const auth = new google.auth.GoogleAuth({
     credentials: {
-      client_email: process.env.GOOGLE_SERVICE_ACCOUNT_EMAIL,
+      client_email: trimEnvQuotes(process.env.GOOGLE_SERVICE_ACCOUNT_EMAIL),
       private_key: normalizePrivateKey(process.env.GOOGLE_PRIVATE_KEY),
     },
     scopes: ["https://www.googleapis.com/auth/spreadsheets"],
   });
 
   const sheets = google.sheets({ version: "v4", auth });
-  const spreadsheetId = process.env.GOOGLE_SHEET_ID;
-  const sheetName = (process.env.GOOGLE_SHEET_TAB_NAME || "Sheet1").trim();
+  const spreadsheetId = normalizeSpreadsheetId(process.env.GOOGLE_SHEET_ID);
+  const sheetName = resolveSheetTabName();
   const formType =
     String(payload.formType || "contact").toLowerCase() === "instruct"
       ? "Instruct"
@@ -76,7 +113,7 @@ async function appendLeadToSheet(payload) {
 
   await sheets.spreadsheets.values.append({
     spreadsheetId,
-    range: `${sheetName}!A:L`,
+    range: appendRangeForTab(sheetName, "A:L"),
     valueInputOption: "USER_ENTERED",
     insertDataOption: "INSERT_ROWS",
     requestBody: {
@@ -172,7 +209,7 @@ exports.handler = async function handler(event) {
   } catch (err) {
     console.error("Google Sheets error (submit-lead fn):", {
       message: err && err.message,
-      tab: (process.env.GOOGLE_SHEET_TAB_NAME || "Sheet1").trim(),
+      tab: resolveSheetTabName(),
     });
   }
 

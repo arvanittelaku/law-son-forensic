@@ -1,4 +1,4 @@
-import { appendRow, isGoogleSheetsConfigured } from "@/lib/google-sheets";
+import { appendRow, DEFAULT_SHEET_TAB_NAME, isGoogleSheetsConfigured } from "@/lib/google-sheets";
 import { BRAND_NAME } from "@/lib/leadNotification";
 
 export type ContactLeadPayload = {
@@ -79,7 +79,7 @@ export async function writeContactLeadToSheetSafely(
       spreadsheetId: process.env.GOOGLE_SHEET_ID
         ? `${process.env.GOOGLE_SHEET_ID.slice(0, 8)}...`
         : "missing",
-      tab: (process.env.GOOGLE_SHEET_TAB_NAME || "Sheet1").trim(),
+      tab: (process.env.GOOGLE_SHEET_TAB_NAME || DEFAULT_SHEET_TAB_NAME).trim(),
       timestamp: new Date().toISOString(),
     });
     return false;
